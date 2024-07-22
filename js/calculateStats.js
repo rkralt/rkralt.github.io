@@ -18,6 +18,85 @@ function calculateStats(playerSource) {
   const tiresStats = allStats.Tires.find(item => item.Numbers === tiresInt);
   const gliderStats = allStats.Gliders.find(item => item.Numbers === gliderInt);
 
+  const speedStat = convertToPercentage(
+    parseFloat(characterStats.Speed) + 
+    parseFloat(kartStats.Speed) + 
+    parseFloat(tiresStats.Speed) + 
+    parseFloat(gliderStats.Speed)
+  );
+
+  const speedBar = playerSource.querySelector('.speed .bar-percentage');
+  speedBar.style.width = `${speedStat}%`;
+  
+  const accelStat = convertToPercentage(
+    parseFloat(characterStats.Accel) + 
+    parseFloat(kartStats.Accel) + 
+    parseFloat(tiresStats.Accel) + 
+    parseFloat(gliderStats.Accel)
+  );
+
+  const accelBar = playerSource.querySelector('.acceleration .bar-percentage');
+  accelBar.style.width = `${accelStat}%`;
+  
+  const weightStat = convertToPercentage(
+    parseFloat(characterStats.Weight) + 
+    parseFloat(kartStats.Weight) + 
+    parseFloat(tiresStats.Weight) + 
+    parseFloat(gliderStats.Weight)
+  );
+
+  const weightBar = playerSource.querySelector('.weight .bar-percentage');
+  weightBar.style.width = `${weightStat}%`;
+  
+  const handlingStat = convertToPercentage(
+    parseFloat(characterStats.Handling) + 
+    parseFloat(kartStats.Handling) + 
+    parseFloat(tiresStats.Handling) + 
+    parseFloat(gliderStats.Handling)
+  );
+
+  const handlingBar = playerSource.querySelector('.handling .bar-percentage');
+  handlingBar.style.width = `${handlingStat}%`;
+  
+  const tractionStat = convertToPercentage(
+    parseFloat(characterStats.Traction) + 
+    parseFloat(kartStats.Traction) + 
+    parseFloat(tiresStats.Traction) + 
+    parseFloat(gliderStats.Traction)
+  );
+
+  const tractionBar = playerSource.querySelector('.grip .bar-percentage');
+  tractionBar.style.width = `${tractionStat}%`;
+  
+  const miniTurboStat = convertToPercentage(
+    parseFloat(characterStats['M-turbo']) + 
+    parseFloat(kartStats['M-turbo']) + 
+    parseFloat(tiresStats['M-turbo']) + 
+    parseFloat(gliderStats['M-turbo'])
+  );
+
+  const miniTurboBar = playerSource.querySelector('.mini-turbo .bar-percentage');
+  miniTurboBar.style.width = `${miniTurboStat}%`;
+  
+  const invincibStat = convertToPercentage(
+    parseFloat(characterStats.Invincib) + 
+    parseFloat(kartStats.Invincib) + 
+    parseFloat(tiresStats.Invincib) + 
+    parseFloat(gliderStats.Invincib)
+  );
+
+  const invincibBar = playerSource.querySelector('.invincibility-frames .bar-percentage');
+  invincibBar.style.width = `${invincibStat}%`;
+
+  showDriftType(playerSource, kartInt);
+}
+
+function convertToPercentage(stat) {
+  const maxStat = config.MAX_STAT;
+  return (stat / maxStat) * 100;
+}
+
+function showDriftType(playerSource, kartInt) {
   const driftType = playerSource.querySelector('.drift-type');
 
   if(kartInt === config.INWARD_COMET ||

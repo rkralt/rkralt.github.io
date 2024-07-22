@@ -134,9 +134,13 @@ document.addEventListener('keyup', function(event) {
       closeStatsOverlay(player3StatsOverlay);
       closeStatsOverlay(player4StatsOverlay);
     } else {
+      calculateStats(player1);
       openStatsOverlay(player1StatsOverlay);
+      calculateStats(player2);
       openStatsOverlay(player2StatsOverlay);
+      calculateStats(player3);
       openStatsOverlay(player3StatsOverlay);
+      calculateStats(player4);
       openStatsOverlay(player4StatsOverlay);
     }
   }
