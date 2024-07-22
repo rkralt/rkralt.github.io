@@ -1,0 +1,332 @@
+@import url('https://fonts.cdnfonts.com/css/new-super-mario-font-u');
+
+/* MAIN CONFIG */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --padding-sm: 8px;
+  --padding-md: 16px;
+  --padding-lg: 24px;
+
+  --min-font-size: .5rem;
+  --max-font-size: 1.5rem;
+  --scale-factor: 2.5vw + 1rem;
+
+  --border-radius: 10px;
+
+  --color-main-blue: hsl(190, 100%, 10%);
+  --color-main-blue-hover: hsl(190, 100%, 13%);
+  --color-accent: #00ACD0;
+  --color-blur-bg: rgba(0, 0, 0, 0.4);
+  --filter-blur-bg: blur(3px);
+  --box-shadow-blur: 3px 3px 10px 0px var(--color-main-blue);
+}
+
+.hidden {
+  display: none!important;
+}
+
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5
+h6,
+button {
+  font-family: 'New Super Mario Font U', sans-serif;
+  color: white;
+}
+
+body {
+  padding: var(--padding-lg);
+  background-image: url("Images/Background.png");
+  background-size: max(50%, 500px);
+  font-size: clamp(var(--min-font-size), var(--scale-factor), var(--max-font-size));
+  accent-color: var(--color-accent);
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw + 1rem, 3rem);
+  color: var(--color-main-blue);
+}
+
+h2 {
+  font-size: clamp(.7rem, 4vw + 1rem, 2rem);
+}
+
+input, label, button {
+  font-size: clamp(.5rem, 4vw + .25rem, 1.5rem);
+}
+
+input {
+  border-radius: 5px;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  background-color: var(--color-main-blue);
+  border: none;
+  padding: var(--padding-sm);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+}
+
+button:hover {
+  background-color: var(--color-main-blue-hover);
+}
+
+label {
+  white-space: nowrap;
+}
+
+hr {
+  color: white;
+}
+
+
+/* HEADER */
+header {
+  padding-bottom: var(--padding-sm);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--padding-sm);
+  align-items: center;
+}
+
+.subheader {
+  display: flex;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  align-items: center;
+  background-color: var(--color-blur-bg);
+  backdrop-filter: var(--filter-blur-bg);
+  box-shadow: var(--box-shadow-blur);
+  
+  & > h2 {
+    padding-left: var(--padding-sm);
+  }
+
+  & > button {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  } 
+}
+
+.settings-wrapper {
+  position: relative;
+}
+
+.settings-toggle {
+  cursor: pointer;
+  background-color: transparent;
+
+  & > svg {
+    vertical-align: middle;
+    fill: var(--color-main-blue);
+    stroke: var(--color-main-blue);
+  }
+}
+
+.settings-toggle:hover {
+  background-color: transparent;
+
+  & > svg {
+    fill: var(--color-main-blue);
+    stroke: var(--color-main-blue);
+  }
+}
+
+.settings-menu {
+  position: absolute;
+  background-color: var(--color-main-blue);
+  right: 0;
+  padding: var(--padding-md);
+  border-radius: var(--border-radius);
+  display: grid;
+  gap: var(--padding-sm);
+  z-index: 1;
+
+  & > .reset-settings {
+    border: 1px solid white;
+  }
+}
+
+.settings-wrapper:has(.settings-toggle[data-open="false"]) {
+  & > .settings-menu {
+    display: none;
+  }
+
+  & .cross {
+    display: none;
+  }
+}
+
+.settings-wrapper:has(.settings-toggle[data-open="true"]) {
+  & .menu {
+    display: none;
+  }
+}
+
+.setting {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  gap: var(--padding-md);
+}
+
+
+/* MAIN LAYOUT */
+main {
+  display: grid;
+  gap: var(--padding-md);
+}
+
+
+/* KART LAYOUT */
+.kart-wrapper {
+  display: flex;
+  gap: var(--padding-md);
+  flex-direction: column;
+}
+
+.kart-item {
+  display: grid;
+  grid-template-areas:
+  ". character ."
+  "kart tires glider";
+  gap: var(--padding-sm);
+  justify-items: center;
+  background-color: var(--color-blur-bg);
+  backdrop-filter: var(--filter-blur-bg);
+  border-radius: var(--border-radius);
+  padding: var(--padding-sm) 0;
+  box-shadow: var(--box-shadow-blur);
+  position: relative;
+
+  & .character,
+  .kart,
+  .tires,
+  .glider {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  & .character {
+    grid-area: character;
+  }
+
+  & .kart {
+    grid-area: kart;
+  }
+
+  & .tires {
+    grid-area: tires;
+  }
+
+  & .glider {
+    grid-area: glider;
+  }
+}
+
+.show-stats, .hide-stats {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: var(--padding-sm) var(--padding-md);
+  border-radius: 0 var(--border-radius) 0 var(--border-radius);
+  z-index: 1;
+}
+
+.hide-stats {
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.stats-overlay {
+  background-color: var(--color-main-blue);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  padding: var(--padding-md);
+  border-radius: var(--border-radius);
+  gap: var(--padding-md);
+}
+
+.stats-overlay[data-show="true"] {
+  display: flex;
+}
+
+.stats-wrapper {
+  width: 70%;
+  display: grid;
+  gap: var(--padding-sm);
+  overflow: auto;
+  padding-right: var(--padding-md);
+}
+
+.stat {
+  display: grid;
+}
+
+.stats-bar {
+  height: 10px;
+  background-color: black;
+  position: relative;
+}
+
+.bar-percentage {
+  position: absolute;
+  background-color: yellow;
+  width: 50%;
+  height: 100%;
+}
+
+.drift-type {
+  position: fixed;
+  bottom: var(--padding-sm);
+  right: var(--padding-md);
+}
+
+
+/* TRACK LAYOUT */
+.track-wrapper {
+  display: flex;
+  gap: var(--padding-md);
+  flex-direction: column;
+}
+
+.track-info {
+  display: grid;
+  justify-items: center;
+  gap: var(--padding-md);
+  background-color: var(--color-blur-bg);
+  backdrop-filter: var(--filter-blur-bg);
+  border-radius: var(--border-radius);
+  padding: var(--padding-md);
+  box-shadow: var(--box-shadow-blur);
+}
+
+.cup {
+  width: 100%;
+  max-width: 150px;
+}
+
+
+/* MEDIA QUERY */
+@media only screen and (min-width: 800px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}

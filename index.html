@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Mario Kart 8 Deluxe randomizer</title>
+</head>
+
+<body>
+  <header>
+    <h1>Mario Kart 8 Deluxe randomizer</h1>
+    <div class="settings-wrapper">
+      <button class="settings-toggle" data-open="false">
+        <svg class="menu" viewBox="0 0 100 80" width="40" height="40">
+          <rect width="100" height="20"></rect>
+          <rect y="30" width="100" height="20"></rect>
+          <rect y="60" width="100" height="20"></rect>
+        </svg>
+        <svg class="cross" viewBox="0 0 100 100" width="40" height="40">
+          <line x1="10" y1="10" x2="90" y2="90" stroke-width="20"></line>
+          <line x1="90" y1="10" x2="10" y2="90" stroke-width="20"></line>
+        </svg>
+      </button>
+      <div class="settings-menu">
+        <h3>Player settings</h3>
+        <div class="setting">
+          <label for="player-count">Players</label>
+          <input type="number" name="player-count" id="player-count" value="2" min="1" max="4">
+        </div>
+        <hr />
+        <h3>Track settings</h3>
+        <div class="setting">
+          <label for="no-tour-tracks">No Tour tracks</label>
+          <input type="checkbox" name="no-tour-tracks" id="no-tour-tracks">
+        </div>
+        <div class="setting">
+          <label for="no-retro-tracks">Only nitro tracks</label>
+          <input type="checkbox" name="no-retro-tracks" id="no-retro-tracks">
+        </div>
+        <div class="setting">
+          <label for="no-nitro-tracks">Only retro tracks</label>
+          <input type="checkbox" name="no-nitro-tracks" id="no-nitro-tracks">
+        </div>
+        <hr />
+        <h3>Character settings</h3>
+        <div class="setting">
+          <label for="no-stupid-characters">No stupid characters</label>
+          <input type="checkbox" name="no-stupid-characters" id="no-stupid-characters">
+        </div>
+        <hr />
+        <h3>Kart settings</h3>
+        <div class="setting">
+          <label for="no-bikes">No bikes</label>
+          <input type="checkbox" name="no-bikes" id="no-bikes">
+        </div>
+        <hr />
+        <button class="reset-settings">Reset settings</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="kart-wrapper">
+      <div class="subheader">
+        <h2>Karts</h2>
+        <button id="randomize-karts">Randomize</button>
+      </div>
+      <div class="kart-item player1">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item player2">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item player3">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item player4">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+    </div>
+    <div class="track-wrapper">
+      <div class="subheader">
+        <h2>Track</h2>
+        <button id="randomize-track">Randomize</button>
+      </div>
+      <div class="track-info">
+        <img class="cup">
+        <img class="track">
+      </div>
+    </div>
+  </main>
+</body>
+<script src="script.js" type="module"></script>
+
+</html>
