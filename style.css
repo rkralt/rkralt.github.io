@@ -15,7 +15,7 @@
 
   --min-font-size: .5rem;
   --max-font-size: 1.5rem;
-  --scale-factor: 2.5vw + 1rem;
+  --scale-factor: 1.5vw + .5rem;
 
   --border-radius: 10px;
 
@@ -205,7 +205,7 @@ main {
   grid-template-areas:
   ". character ."
   "kart tires glider";
-  gap: var(--padding-sm);
+  gap: var(--padding-lg);
   justify-items: center;
   background-color: var(--color-blur-bg);
   backdrop-filter: var(--filter-blur-bg);
@@ -224,6 +224,7 @@ main {
 
   & .character {
     grid-area: character;
+    max-width: 200px;
   }
 
   & .kart {
@@ -243,18 +244,20 @@ main {
   display: none;
 }
 
-.show-stats, .hide-stats {
+.show-stats {
   position: fixed;
   right: 0;
   top: 0;
   padding: var(--padding-sm) var(--padding-md);
   border-radius: 0 var(--border-radius) 0 var(--border-radius);
-  z-index: 1;
 }
 
 .hide-stats {
   border-left: 1px solid white;
   border-bottom: 1px solid white;
+  border-radius: 0 var(--border-radius) 0 var(--border-radius);
+  width: fit-content;
+  padding: var(--padding-sm) var(--padding-md);
 }
 
 .stats-overlay {
@@ -263,31 +266,44 @@ main {
   width: 100%;
   height: 100%;
   display: none;
-  padding: var(--padding-md);
   border-radius: var(--border-radius);
   gap: var(--padding-md);
+  grid-template-columns: 1fr auto;
 }
 
 .stats-overlay[data-show="true"] {
-  display: flex;
+  display: grid;
 }
 
 .stats-wrapper {
-  width: 70%;
   display: grid;
   gap: var(--padding-sm);
   overflow: auto;
-  padding-right: var(--padding-md);
+  padding: var(--padding-sm)  var(--padding-md);
+}
+
+.stats-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.drift-type {
+  padding: var(--padding-sm)  var(--padding-md);
 }
 
 .stat {
   display: grid;
+  gap: 4px;
 }
 
 .stats-bar {
-  height: 10px;
+  height: 16px;
   background-color: rgb(51, 51, 51);
   position: relative;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .bar-percentage {
@@ -304,15 +320,9 @@ main {
   justify-content: space-evenly;
 
   & > .stripe {
-    width: 3px;
+    width: 4px;
     background-color: black;
   }
-}
-
-.drift-type {
-  position: fixed;
-  bottom: var(--padding-sm);
-  right: var(--padding-md);
 }
 
 
