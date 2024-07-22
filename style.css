@@ -239,6 +239,10 @@ main {
   }
 }
 
+.kart-item[data-show="false"] {
+  display: none;
+}
+
 .show-stats, .hide-stats {
   position: fixed;
   right: 0;

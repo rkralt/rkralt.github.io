@@ -4,69 +4,36 @@ import {getRandomIntInclusive, getRandomItemFromArray, removeArrayFromMainArray}
 
 // Randomize player karts.
 function randomizePlayerKarts() {
-  const playerCount = document.querySelector('#player-count').value;
-  const player1 = document.querySelector('.player1');
-  const player2 = document.querySelector('.player2');
-  const player3 = document.querySelector('.player3');
-  const player4 = document.querySelector('.player4');
+  let playerCount = document.querySelector('#player-count').value;
+  const allPlayers = document.querySelectorAll('.kart-item');
   
-  const player1StatsOverlay = player1.querySelector('.stats-overlay');
-  player1StatsOverlay.dataset.show = 'false';
+  // Hide all players and stats overlays.
+  allPlayers.forEach(player => {
+    player.dataset.show = "false";
+    const playerStatsOverlay = player.querySelector('.stats-overlay');
+    playerStatsOverlay.dataset.show = "false";
+  })
 
-  // Hide all but player 1.
-  player2.classList.add('hidden');
-  player3.classList.add('hidden');
-  player4.classList.add('hidden');
+  // Based on the player count, randomize the players.
+  while(playerCount > 0) {
+    // Select the first available player.
+    const player = document.querySelector('.kart-item[data-show="false"]');
 
-  // Set images for player 1.
-  setCharacterImage(config.BASE_URL_CHARACTERS, player1);
-  setKartsImage(config.BASE_URL_KARTS, player1);
-  setTiresImage(config.BASE_URL_TIRES, player1);
-  setGlidersImage(config.BASE_URL_GLIDERS, player1);
+    // If there's no player, go out of the loop.
+    if(player === null) {
+      break;
+    }
 
-  // Show player 2 based on setting.
-  if(playerCount !== null && playerCount > 1) {
-    player2.classList.remove('hidden');
+    // Show player.
+    player.dataset.show = "true";
 
-    // Hide stats overlay.
-    const player2StatsOverlay = player2.querySelector('.stats-overlay');
-    player2StatsOverlay.dataset.show = 'false';
+    // Set images for player.
+    setCharacterImage(config.BASE_URL_CHARACTERS, player);
+    setKartsImage(config.BASE_URL_KARTS, player);
+    setTiresImage(config.BASE_URL_TIRES, player);
+    setGlidersImage(config.BASE_URL_GLIDERS, player);
 
-    // Set images for player 2.
-    setCharacterImage(config.BASE_URL_CHARACTERS, player2);
-    setKartsImage(config.BASE_URL_KARTS, player2);
-    setTiresImage(config.BASE_URL_TIRES, player2);
-    setGlidersImage(config.BASE_URL_GLIDERS, player2);
-  }
-
-  // Show player 3 based on setting.
-  if(playerCount !== null && playerCount > 2) {
-    player3.classList.remove('hidden');
-
-    // Hide stats overlay.
-    const player3StatsOverlay = player3.querySelector('.stats-overlay');
-    player3StatsOverlay.dataset.show = 'false';
-
-    // Set images for player 3.
-    setCharacterImage(config.BASE_URL_CHARACTERS, player3);
-    setKartsImage(config.BASE_URL_KARTS, player3);
-    setTiresImage(config.BASE_URL_TIRES, player3);
-    setGlidersImage(config.BASE_URL_GLIDERS, player3);
-  }
-
-  // Show player 4 based on setting.
-  if(playerCount !== null && playerCount > 3) {
-    player4.classList.remove('hidden');
-
-    // Hide stats overlay.
-    const player4StatsOverlay = player4.querySelector('.stats-overlay');
-    player4StatsOverlay.dataset.show = 'false';
-
-    // Set images for player 4.
-    setCharacterImage(config.BASE_URL_CHARACTERS, player4);
-    setKartsImage(config.BASE_URL_KARTS, player4);
-    setTiresImage(config.BASE_URL_TIRES, player4);
-    setGlidersImage(config.BASE_URL_GLIDERS, player4);
+    playerCount--;
   }
 }
 

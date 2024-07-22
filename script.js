@@ -24,11 +24,6 @@ import calculateStats from './js/calculateStats.js';
 // --- CODE ---
 
 // RANDOMIZER
-const player1 = document.querySelector('.player1');
-const player2 = document.querySelector('.player2');
-const player3 = document.querySelector('.player3');
-const player4 = document.querySelector('.player4');
-
 // Randomize karts & track on startup.
 randomizePlayerKarts();
 randomizeTrack();
@@ -70,11 +65,9 @@ excludeRetroTracksBtn.addEventListener('click', randomizeTrack);
 excludeNitroTracksBtn.addEventListener('click', randomizeTrack);
 
 const excludeStupidCharactersBtn = document.querySelector('#no-stupid-characters');
-
 excludeStupidCharactersBtn.addEventListener('click', randomizePlayerKarts);
 
 const excludeBikesBtn = document.querySelector('#no-bikes');
-
 excludeBikesBtn.addEventListener('click', randomizePlayerKarts);
 
 // Reset settings on button click.
@@ -83,29 +76,13 @@ resetSettingsBtn.addEventListener('click', resetSettings);
 
 
 // STATS
-const player1ShowStats = player1.querySelector('.show-stats');
-const player2ShowStats = player2.querySelector('.show-stats');
-const player3ShowStats = player3.querySelector('.show-stats');
-const player4ShowStats = player4.querySelector('.show-stats');
+const playerShowStatsBtns = document.querySelectorAll('.show-stats');
 
-player1ShowStats.addEventListener('click', () => {
-  calculateStats(player1);
-  toggleStatsOverlay(player1ShowStats);
-})
-
-player2ShowStats.addEventListener('click', () => {
-  calculateStats(player2);
-  toggleStatsOverlay(player2ShowStats);
-})
-
-player3ShowStats.addEventListener('click', () => {
-  calculateStats(player3);
-  toggleStatsOverlay(player3ShowStats);
-})
-
-player4ShowStats.addEventListener('click', () => {
-  calculateStats(player4);
-  toggleStatsOverlay(player4ShowStats);
+playerShowStatsBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    calculateStats(btn);
+    toggleStatsOverlay(btn);
+  })
 })
 
 // Hide stats overlay.
@@ -119,29 +96,27 @@ hideStatsBtns.forEach(btn => {
 // Toggle all stats overlays by pressing the s key.
 document.addEventListener('keyup', function(event) {
   if (event.key === 's' || event.key === 'S') {
-    const player1StatsOverlay = document.querySelector('.player1 .stats-overlay');
-    const player2StatsOverlay = document.querySelector('.player2 .stats-overlay');
-    const player3StatsOverlay = document.querySelector('.player3 .stats-overlay');
-    const player4StatsOverlay = document.querySelector('.player4 .stats-overlay');
+    const activePlayers = document.querySelectorAll('.kart-item[data-show="true"]');
+    
+    const closedOverlays = Array.from(activePlayers).filter(player => 
+      player.querySelector('.stats-overlay[data-show="false"]')
+    );
 
-    if(player1StatsOverlay.dataset.show === "true" &&
-      player2StatsOverlay.dataset.show === "true" &&
-      player3StatsOverlay.dataset.show === "true" &&
-      player4StatsOverlay.dataset.show === "true"
-    ) {
-      closeStatsOverlay(player1StatsOverlay);
-      closeStatsOverlay(player2StatsOverlay);
-      closeStatsOverlay(player3StatsOverlay);
-      closeStatsOverlay(player4StatsOverlay);
+    // If all overlays are open/closed, toggle them all.
+    if(activePlayers.length === closedOverlays.length ||
+      closedOverlays.length === 0) {
+      activePlayers.forEach(player => {
+        const statsOverlay = player.querySelector('.stats-overlay');
+        calculateStats(statsOverlay);
+        toggleStatsOverlay(statsOverlay);        
+      })
     } else {
-      calculateStats(player1);
-      openStatsOverlay(player1StatsOverlay);
-      calculateStats(player2);
-      openStatsOverlay(player2StatsOverlay);
-      calculateStats(player3);
-      openStatsOverlay(player3StatsOverlay);
-      calculateStats(player4);
-      openStatsOverlay(player4StatsOverlay);
+      // If at least 1 is opened, open the closed ones.
+      closedOverlays.forEach(player => {
+        const statsOverlay = player.querySelector('.stats-overlay');
+        calculateStats(statsOverlay);
+        toggleStatsOverlay(statsOverlay);        
+      })
     }
   }
 });

@@ -3,7 +3,9 @@ import allStats from '../data/mk-stats.js';
 import { getRandomIntInclusive } from './helpers.js';
 
 // Calculate stats for all vehicle parts.
-function calculateStats(playerSource) {
+function calculateStats(statsSource) {
+  const playerSource = statsSource.closest(".kart-item");
+
   // If stats overlay is open already, don't recalculate stats.
   const statsOverlay = playerSource.querySelector(".stats-overlay");
   if(statsOverlay.dataset.show === "true") return;

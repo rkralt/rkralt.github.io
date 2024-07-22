@@ -27,7 +27,7 @@
         <h3>Player settings</h3>
         <div class="setting">
           <label for="player-count">Players</label>
-          <input type="number" name="player-count" id="player-count" value="2" min="1" max="4">
+          <input type="number" name="player-count" id="player-count" value="2" min="1" max="12">
         </div>
         <hr />
         <h3>Track settings</h3>
@@ -66,7 +66,7 @@
         <h2>Karts</h2>
         <button id="randomize-karts">Randomize</button>
       </div>
-      <div class="kart-item player1">
+      <div class="kart-item" data-show="false">
         <img class="character"></img>
         <img class="kart"></img>
         <img class="tires"></img>
@@ -170,7 +170,7 @@
           <div class="drift-type"></div>
         </div>
       </div>
-      <div class="kart-item player2">
+      <div class="kart-item" data-show="false">
         <img class="character"></img>
         <img class="kart"></img>
         <img class="tires"></img>
@@ -274,7 +274,7 @@
           <div class="drift-type"></div>
         </div>
       </div>
-      <div class="kart-item player3">
+      <div class="kart-item" data-show="false">
         <img class="character"></img>
         <img class="kart"></img>
         <img class="tires"></img>
@@ -378,7 +378,839 @@
           <div class="drift-type"></div>
         </div>
       </div>
-      <div class="kart-item player4">
+      <div class="kart-item" data-show="false">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item" data-show="false">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item" data-show="false">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item" data-show="false">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item" data-show="false">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item" data-show="false">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item" data-show="false">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item" data-show="false">
+        <img class="character"></img>
+        <img class="kart"></img>
+        <img class="tires"></img>
+        <img class="glider"></img>
+        <button class="show-stats">Stats</button>
+        <div class="stats-overlay" data-show="false">
+          <button class="hide-stats">Close</button>
+          <div class="stats-wrapper">
+            <div class="stat speed">
+              Speed
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat acceleration">
+              Acceleration
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat weight">
+              Weight
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat handling">
+              Handling
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat grip">
+              Grip
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat mini-turbo">
+              Mini-turbo
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat invincibility-frames">
+              Invincibility frames
+              <div class="stats-bar">
+                <div class="bar-percentage"></div>
+                <div class="bar-stripes">
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                  <div class="stripe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="drift-type"></div>
+        </div>
+      </div>
+      <div class="kart-item" data-show="false">
         <img class="character"></img>
         <img class="kart"></img>
         <img class="tires"></img>
