@@ -113,7 +113,8 @@ function showDriftType(playerSource, kartInt) {
 
     if (jankenInt !== 0) return;
     
-    driftType.innerText += ' JANKEN';
+    driftType.innerText += `
+    JANKEN`;
   } else {
     driftType.innerText = 'Outward drift'
   }

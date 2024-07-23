@@ -32,6 +32,13 @@ playerCountInput.max = config.SETTING_MAX_PLAYER_COUNT;
 const randomizeKartsBtn = document.querySelector('#randomize-karts');
 randomizeKartsBtn.addEventListener('click', randomizePlayerKarts);
 
+// Randomize karts by pressing r key.
+document.addEventListener('keyup', function(event) {
+  if (event.key === 'r' || event.key === 'R') {
+    randomizePlayerKarts();
+  }
+})
+
 // Randomize track on button click.
 const randomizeTrackBtn = document.querySelector('#randomize-track');
 randomizeTrackBtn.addEventListener('click', randomizeTrack);
@@ -70,6 +77,12 @@ excludeBikesBtn.addEventListener('click', randomizePlayerKarts);
 const resetSettingsBtn = document.querySelector('.reset-settings');
 resetSettingsBtn.addEventListener('click', resetSettings);
 
+// Randomize karts by pressing t key.
+document.addEventListener('keyup', function(event) {
+  if (event.key === 't' || event.key === 'T') {
+    randomizeTrack();
+  }
+})
 
 // STATS
 const playerShowStatsBtns = document.querySelectorAll('.show-stats');
