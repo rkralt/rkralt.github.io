@@ -1,3 +1,6 @@
+// Config
+import config from './js/config.js';
+
 // UX functions
 import { resetSettings, toggleSettingsMenu, toggleStatsOverlay } from './js/ux.js';
 
@@ -21,6 +24,9 @@ randomizeTrack();
 // Randomize karts on player count change.
 const playerCountInput = document.querySelector('#player-count');
 playerCountInput.addEventListener('change', randomizePlayerKarts);
+
+// Set max player count based on config setting.
+playerCountInput.max = config.SETTING_MAX_PLAYER_COUNT;
 
 // Randomize karts on button click.
 const randomizeKartsBtn = document.querySelector('#randomize-karts');
