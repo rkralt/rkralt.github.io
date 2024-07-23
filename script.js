@@ -1,15 +1,5 @@
-// --- CONFIG ---
-// Character stats JSON
-import CHARACTER_STATS from './data/mk-stats.js';
-
-// Config
-import config from './js/config.js';
-
-// Helper functions
-import { getRandomIntInclusive, getRandomItemFromArray, removeArrayFromMainArray } from './js/helpers.js';
-
 // UX functions
-import { resetSettings, toggleSettingsMenu, toggleStatsOverlay, openStatsOverlay, closeStatsOverlay } from './js/ux.js';
+import { resetSettings, toggleSettingsMenu, toggleStatsOverlay } from './js/ux.js';
 
 // Randomize karts function.
 import randomizePlayerKarts from './js/randomizeKarts.js';

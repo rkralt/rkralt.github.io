@@ -3,8 +3,6 @@ const config = {
   MAX_STAT: 6,
 
   // Max available characters, karts, tires & gliders to choose from.
-  SELECTABLE_CHARACTERS: 46,
-  SELECTABLE_KARTS: 40,
   SELECTABLE_TIRES: 21,
   SELECTABLE_GLIDERS: 14,
 

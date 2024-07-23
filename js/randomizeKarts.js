@@ -1,6 +1,5 @@
-// Config
 import config from './config.js';
-import {getRandomIntInclusive, getRandomItemFromArray, removeArrayFromMainArray} from './helpers.js';
+import { getRandomIntInclusive, getRandomItemFromArray, removeArrayFromMainArray } from './helpers.js';
 
 // Randomize player karts.
 function randomizePlayerKarts() {

@@ -7,6 +7,7 @@ function resetSettings() {
   let randomTrack = false;
   let randomCharacter = false;
 
+  // Reset player count
   const playerCount = document.querySelector('#player-count');
 
   if(parseInt(playerCount.value) !== config.SETTING_PLAYER_COUNT) {
@@ -14,6 +15,7 @@ function resetSettings() {
     randomCharacter = true;
   }
 
+  // Reset no tour tracks
   const excludeTourTracks = document.querySelector('#no-tour-tracks');
 
   if(excludeTourTracks.checked !== config.SETTING_EXCLUDE_TOUR_TRACKS) {
@@ -21,6 +23,7 @@ function resetSettings() {
     randomTrack = true;
   }
 
+  // Reset only retro tracks
   const excludeNitroTracks = document.querySelector('#no-nitro-tracks');
 
   if(excludeNitroTracks.checked !== config.SETTING_EXCLUDE_NITRO_TRACKS) {
@@ -28,6 +31,7 @@ function resetSettings() {
     randomTrack = true;
   }
 
+  // Reset only nitro tracks
   const excludeRetroTracks = document.querySelector('#no-retro-tracks');
 
   if(excludeRetroTracks.checked !== config.SETTING_EXCLUDE_RETRO_TRACKS) {
@@ -35,6 +39,7 @@ function resetSettings() {
     randomTrack = true;
   }
 
+  // Reset stupid characters
   const excludeStupidCharacters = document.querySelector('#no-stupid-characters');
 
   if(excludeStupidCharacters.checked !== config.SETTINGS_EXCLUDE_STUPID_CHARACTERS) {
@@ -42,6 +47,7 @@ function resetSettings() {
     randomCharacter = true;
   }
 
+  // Reset no bikes
   const excludeBikes = document.querySelector('#no-bikes');
   
   if(excludeBikes.checked !== config.SETTINGS_EXCLUDE_BIKES) {
@@ -49,12 +55,12 @@ function resetSettings() {
     randomCharacter = true;
   }
 
-  // Only randomize karts once.
+  // Only randomize karts once if needed.
   if(randomCharacter) {
     randomizePlayerKarts();
   }
 
-  // Only randomize track once.
+  // Only randomize track once if needed.
   if(randomTrack) {
     randomizeTrack();
   }
@@ -85,12 +91,4 @@ function toggleStatsOverlay(showStatsBtn) {
   }
 }
 
-function openStatsOverlay(statsOverlay) {
-  statsOverlay.dataset.show = 'true';
-}
-
-function closeStatsOverlay(statsOverlay) {
-  statsOverlay.dataset.show = 'false';
-}
-
-export { resetSettings, toggleSettingsMenu, toggleStatsOverlay, openStatsOverlay, closeStatsOverlay };
+export { resetSettings, toggleSettingsMenu, toggleStatsOverlay };
