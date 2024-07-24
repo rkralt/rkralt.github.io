@@ -21,16 +21,19 @@ import calculateStats from './js/calculateStats.js';
 randomizePlayerKarts();
 randomizeTrack();
 
-// Randomize karts on player count change.
-const playerCountInput = document.querySelector('#player-count');
-playerCountInput.addEventListener('change', randomizePlayerKarts);
-
 // Set max player count based on config setting.
+const playerCountInput = document.querySelector('#player-count');
 playerCountInput.max = config.SETTING_MAX_PLAYER_COUNT;
 
 // Randomize karts on button click.
 const randomizeKartsBtn = document.querySelector('#randomize-karts');
 randomizeKartsBtn.addEventListener('click', randomizePlayerKarts);
+
+// Randomize track on button click.
+const randomizeTrackBtn = document.querySelector('#randomize-track');
+randomizeTrackBtn.addEventListener('click', randomizeTrack);
+
+
 
 // Randomize karts by pressing r key.
 document.addEventListener('keyup', function(event) {
@@ -39,16 +42,21 @@ document.addEventListener('keyup', function(event) {
   }
 })
 
-// Randomize track on button click.
-const randomizeTrackBtn = document.querySelector('#randomize-track');
-randomizeTrackBtn.addEventListener('click', randomizeTrack);
+// Randomize karts by pressing t key.
+document.addEventListener('keyup', function(event) {
+  if (event.key === 't' || event.key === 'T') {
+    randomizeTrack();
+  }
+})
 
-// Randomize track on settings change.
+
+// Randomize track/players on settings change.
+playerCountInput.addEventListener('change', randomizePlayerKarts);
+
 const excludeTourTracksBtn = document.querySelector('#no-tour-tracks');
 excludeTourTracksBtn.addEventListener('click', randomizeTrack);
 
 const excludeRetroTracksBtn = document.querySelector('#no-retro-tracks');
-const excludeNitroTracksBtn = document.querySelector('#no-nitro-tracks');
 
 // Toggle impossible settings
 excludeRetroTracksBtn.addEventListener('click', () => {
@@ -57,32 +65,44 @@ excludeRetroTracksBtn.addEventListener('click', () => {
   }
 })
 
+excludeRetroTracksBtn.addEventListener('click', randomizeTrack); 
+
+const excludeNitroTracksBtn = document.querySelector('#no-nitro-tracks');
+
+// Toggle impossible settings.
 excludeNitroTracksBtn.addEventListener('click', () => {
   if(excludeNitroTracksBtn.checked) {
     excludeRetroTracksBtn.checked = false;
   }
 })
 
-// Randomize track on settings change.
-excludeRetroTracksBtn.addEventListener('click', randomizeTrack); 
 excludeNitroTracksBtn.addEventListener('click', randomizeTrack);
+
+const noTrackTwice = document.querySelector('#no-track-twice');
+noTrackTwice.addEventListener('click', randomizeTrack);
 
 const excludeStupidCharactersBtn = document.querySelector('#no-stupid-characters');
 excludeStupidCharactersBtn.addEventListener('click', randomizePlayerKarts);
 
+const noCharacterTwice = document.querySelector('#no-character-twice');
+noCharacterTwice.addEventListener('click', randomizePlayerKarts);
+
 const excludeBikesBtn = document.querySelector('#no-bikes');
 excludeBikesBtn.addEventListener('click', randomizePlayerKarts);
+
+const noKartTwice = document.querySelector('#no-kart-twice');
+noKartTwice.addEventListener('click', randomizePlayerKarts);
+
+const noTiresTwice = document.querySelector('#no-tires-twice');
+noTiresTwice.addEventListener('click', randomizePlayerKarts);
+
+const noGliderTwice = document.querySelector('#no-glider-twice');
+noGliderTwice.addEventListener('click', randomizePlayerKarts);
 
 // Reset settings on button click.
 const resetSettingsBtn = document.querySelector('.reset-settings');
 resetSettingsBtn.addEventListener('click', resetSettings);
 
-// Randomize karts by pressing t key.
-document.addEventListener('keyup', function(event) {
-  if (event.key === 't' || event.key === 'T') {
-    randomizeTrack();
-  }
-})
 
 // STATS
 const playerShowStatsBtns = document.querySelectorAll('.show-stats');

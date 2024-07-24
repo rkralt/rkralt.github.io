@@ -4,8 +4,8 @@ import randomizeTrack from './randomizeTrack.js';
 
 // Reset all settings
 function resetSettings() {
-  let randomTrack = false;
   let randomCharacter = false;
+  let randomTrack = false;
 
   // Reset player count
   const playerCount = document.querySelector('#player-count');
@@ -23,14 +23,6 @@ function resetSettings() {
     randomTrack = true;
   }
 
-  // Reset only retro tracks
-  const excludeNitroTracks = document.querySelector('#no-nitro-tracks');
-
-  if(excludeNitroTracks.checked !== config.SETTING_EXCLUDE_NITRO_TRACKS) {
-    excludeNitroTracks.checked = config.SETTING_EXCLUDE_NITRO_TRACKS;
-    randomTrack = true;
-  }
-
   // Reset only nitro tracks
   const excludeRetroTracks = document.querySelector('#no-retro-tracks');
 
@@ -39,19 +31,67 @@ function resetSettings() {
     randomTrack = true;
   }
 
+  // Reset only retro tracks
+  const excludeNitroTracks = document.querySelector('#no-nitro-tracks');
+
+  if(excludeNitroTracks.checked !== config.SETTING_EXCLUDE_NITRO_TRACKS) {
+    excludeNitroTracks.checked = config.SETTING_EXCLUDE_NITRO_TRACKS;
+    randomTrack = true;
+  }
+
+  // Reset no track twice
+  const noTrackTwice = document.querySelector('#no-track-twice');
+
+  if(noTrackTwice.checked !== config.SETTING_NO_TRACK_TWICE) {
+    noTrackTwice.checked = config.SETTING_NO_TRACK_TWICE;
+    randomTrack = true;
+  }
+
   // Reset stupid characters
   const excludeStupidCharacters = document.querySelector('#no-stupid-characters');
 
-  if(excludeStupidCharacters.checked !== config.SETTINGS_EXCLUDE_STUPID_CHARACTERS) {
-    excludeStupidCharacters.checked = config.SETTINGS_EXCLUDE_STUPID_CHARACTERS;
+  if(excludeStupidCharacters.checked !== config.SETTING_EXCLUDE_STUPID_CHARACTERS) {
+    excludeStupidCharacters.checked = config.SETTING_EXCLUDE_STUPID_CHARACTERS;
+    randomCharacter = true;
+  }
+
+  // Reset no character twice
+  const noCharacterTwice = document.querySelector('#no-character-twice');
+
+  if(noCharacterTwice.checked !== config.SETTINS_NO_CHARACTER_TWICE) {
+    noCharacterTwice.checked = config.SETTINS_NO_CHARACTER_TWICE;
     randomCharacter = true;
   }
 
   // Reset no bikes
   const excludeBikes = document.querySelector('#no-bikes');
   
-  if(excludeBikes.checked !== config.SETTINGS_EXCLUDE_BIKES) {
-    excludeBikes.checked = config.SETTINGS_EXCLUDE_BIKES;
+  if(excludeBikes.checked !== config.SETTING_EXCLUDE_BIKES) {
+    excludeBikes.checked = config.SETTING_EXCLUDE_BIKES;
+    randomCharacter = true;
+  }
+
+  // Reset no kart twice
+  const noKartTwice = document.querySelector('#no-kart-twice');
+
+  if(noKartTwice.checked !== config.SETTING_NO_KART_TWICE) {
+    noKartTwice.checked = config.SETTING_NO_KART_TWICE;
+    randomCharacter = true;
+  }
+
+  // Reset no tires twice
+  const noTiresTwice = document.querySelector('#no-tires-twice');
+
+  if(noTiresTwice.checked !== config.SETTING_NO_TIRES_TWICE) {
+    noTiresTwice.checked = config.SETTING_NO_TIRES_TWICE;
+    randomCharacter = true;
+  }
+
+  // Reset no character twice
+  const noGliderTwice = document.querySelector('#no-glider-twice');
+
+  if(noGliderTwice.checked !== config.SETTING_NO_GLIDER_TWICE) {
+    noGliderTwice.checked = config.SETTING_NO_GLIDER_TWICE;
     randomCharacter = true;
   }
 

@@ -4,9 +4,11 @@ import {getRandomItemFromArray, removeArrayFromMainArray} from './helpers.js';
 // Randomly select track.
 function randomizeTrack() {
   let allTracks = config.TRACKS_ALL;
+  const trackSource = document.querySelector('.track');
   const excludeTourTracks = document.querySelector('#no-tour-tracks').checked;
   const excludeRetroTracks = document.querySelector('#no-retro-tracks').checked;
   const excludeNitroTracks = document.querySelector('#no-nitro-tracks').checked;
+  const noTrackTwice = document.querySelector('#no-track-twice').checked;
 
   // Prevent impossible settings combination (should already be impossible but just in case something goes wrong).
   if(excludeRetroTracks && excludeNitroTracks) {
@@ -19,8 +21,7 @@ function randomizeTrack() {
 
   // Remove tour tracks from list if checkbox is checked.
   if(excludeTourTracks) {
-    const noTourTracks = removeArrayFromMainArray(allTracks, config.TRACKS_TO_REMOVE_TOUR);
-    allTracks = noTourTracks;
+    allTracks = removeArrayFromMainArray(allTracks, config.TRACKS_TO_REMOVE_TOUR);
   }
 
   // Remove retro tracks from list if checkbox is checked.
@@ -31,6 +32,14 @@ function randomizeTrack() {
   // Remove nitro tracks from list if checkbox is checked.
   if(excludeNitroTracks) {
     allTracks = removeArrayFromMainArray(allTracks, config.TRACKS_TO_REMOVE_NITRO);
+  }
+
+  // No track twice
+  if(noTrackTwice) {
+    if(trackSource.dataset.id !== undefined) {
+      const twiceArray = [parseInt(trackSource.dataset.id)];
+      allTracks = removeArrayFromMainArray(allTracks, twiceArray);
+    }
   }
 
   // Get random track number from the array.
@@ -44,6 +53,9 @@ function randomizeTrack() {
   // Set image URLs to correct .png file.
   track.src = config.BASE_URL_TRACKS + trackInt + '.png';
   cup.src = config.BASE_URL_CUP + cupInt + '.png';
+
+  // Set track ID to image for later use.
+  track.dataset.id = trackInt;
 }
 
 export default randomizeTrack;

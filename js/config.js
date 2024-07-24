@@ -54,12 +54,6 @@ const config = {
   // Array of all tracks (numbers 0 to 95).
   TRACKS_ALL: Array.from({length: 96}, (v, i) => i),
 
-  // Array of all karts (numbers 0 to 40).
-  KARTS_ALL: Array.from({length: 41}, (v, i) => i),
-
-  // Array of all characters (numbers 0 to 47).
-  CHARACTERS_ALL: Array.from({length: 48}, (v, i) => i),
-
   // Haal die pokke tracks uit het spelletje!
   TRACKS_TO_REMOVE_TOUR: [48, 52, 56, 60, 64, 68, 72, 76, 79, 80, 84, 87, 88, 92],
 
@@ -69,20 +63,37 @@ const config = {
   // Lekker ouderwetse mappies spelen!
   TRACKS_TO_REMOVE_NITRO: [0, 1, 2, 3, 4 , 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 33, 34, 35, 38, 39, 42, 43, 46, 47, 55, 63, 70, 75, 83, 91],
   
+  // Array of all karts (numbers 0 to 40).
+  KARTS_ALL: Array.from({length: 41}, (v, i) => i),
+
   // Haal die motoren van de weg!
   REMOVE_BIKES: [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 38],
+
+  // Array of all characters (numbers 0 to 47).
+  CHARACTERS_ALL: Array.from({length: 48}, (v, i) => i),
   
   // Ja ook jij Pink Gold Peach!
   CHARACTERS_REMOVE_STUPID: [5, 6, 13, 18, 19, 20, 21, 22, 34, 39, 40, 42],
+
+  // Array of all tires (numbers 0 to 21).
+  TIRES_ALL: Array.from({length: 22}, (v, i) => i),
+
+  // Array of all gliders (numbers 0 to 14).
+  GLIDERS_ALL: Array.from({length: 15}, (v, i) => i),
 
   // Default settings
   SETTING_PLAYER_COUNT: 2,
   SETTING_MAX_PLAYER_COUNT: 12,
   SETTING_EXCLUDE_TOUR_TRACKS: false,
   SETTING_EXCLUDE_NITRO_TRACKS: false,
-  SETTINGS_EXCLUDE_RETRO_TRACKS: false,
-  SETTINGS_EXCLUDE_STUPID_CHARACTERS: false,
-  SETTINGS_EXCLUDE_BIKES: false,
+  SETTING_EXCLUDE_RETRO_TRACKS: false,
+  SETTING_NO_TRACK_TWICE: false,
+  SETTING_EXCLUDE_STUPID_CHARACTERS: false,
+  SETTINS_NO_CHARACTER_TWICE: false,
+  SETTING_EXCLUDE_BIKES: false,
+  SETTING_NO_KART_TWICE: false,
+  SETTING_NO_TIRES_TWICE: false,
+  SETTING_NO_GLIDER_TWICE: false,
 
   // Inward drifting vehicles
   INWARD_COMET: 30,
