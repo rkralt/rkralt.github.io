@@ -2,10 +2,6 @@ const config = {
   // Max stat
   MAX_STAT: 6,
 
-  // Max available characters, karts, tires & gliders to choose from.
-  SELECTABLE_TIRES: 21,
-  SELECTABLE_GLIDERS: 14,
-
   // Birdo amount of variants & character position in selectable character list.
   VARIANTS_BIRDO: 8,
   POSITION_BIRDO: 7,
