@@ -184,4 +184,12 @@ function toggleStatsOverlay(showStatsBtn) {
   }
 }
 
-export { resetSettings, toggleSettingsMenu, toggleStatsOverlay, saveDefaultSettings, loadDefaultSettings, clearDefaultSettings };
+function toggleMenu(menu) {
+  if(menu.dataset.open === 'false') {
+    menu.dataset.open = 'true';
+  } else {
+    menu.dataset.open = 'false';
+  }
+}
+
+export { resetSettings, toggleSettingsMenu, toggleStatsOverlay, saveDefaultSettings, loadDefaultSettings, clearDefaultSettings, toggleMenu };

@@ -2,7 +2,7 @@
 import config from './js/config.js';
 
 // UX functions
-import { resetSettings, toggleSettingsMenu, toggleStatsOverlay, saveDefaultSettings, loadDefaultSettings, clearDefaultSettings } from './js/ux.js';
+import { resetSettings, toggleSettingsMenu, toggleStatsOverlay, saveDefaultSettings, loadDefaultSettings, clearDefaultSettings, toggleMenu } from './js/ux.js';
 
 // Randomize karts function.
 import randomizePlayerKarts from './js/randomizeKarts.js';
@@ -187,4 +187,12 @@ saveSettings.addEventListener('click', () => {
 const clearSettings = document.querySelector('.clear-settings');
 clearSettings.addEventListener('click', () => {
   clearDefaultSettings(config.DEFAULT_SETTINGS_KEY);
+})
+
+// Toggle individual settings.
+const settingToggles = document.querySelectorAll('.setting-toggle');
+settingToggles.forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    toggleMenu(toggle);
+  })
 })

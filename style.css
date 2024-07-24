@@ -13,9 +13,9 @@
   --padding-md: 16px;
   --padding-lg: 24px;
 
-  --min-font-size: .5rem;
+  --min-font-size: 1rem;
   --max-font-size: 1.5rem;
-  --scale-factor: 1.5vw + .5rem;
+  --scale-factor: 2vw;
 
   --border-radius: 10px;
 
@@ -23,7 +23,7 @@
   --color-main-blue-hover: hsl(190, 100%, 13%);
   --color-accent: #00ACD0;
   --color-blur-bg: rgba(0, 0, 0, 0.4);
-  --filter-blur-bg: blur(3px);
+  --filter-blur-bg: blur(2px);
   --box-shadow-blur: 3px 3px 10px 0px var(--color-main-blue);
 }
 
@@ -52,20 +52,29 @@ body {
 }
 
 h1 {
-  font-size: clamp(1.5rem, 4vw + 1rem, 3rem);
+  font-size: clamp(2rem, 2vw + 1rem, 3rem);
   color: var(--color-main-blue);
 }
 
 h2 {
-  font-size: clamp(.7rem, 4vw + 1rem, 2rem);
+  font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
+}
+
+h3 {
+  font-size: clamp(1rem, 2vw + 1rem, 1.5rem);
 }
 
 input, label, button {
-  font-size: clamp(.5rem, 4vw + .25rem, 1.5rem);
+  font-size: clamp(1rem, 2vw + .5rem, 1.3rem);
 }
 
 input {
   border-radius: 5px;
+}
+
+input[type="checkbox"] {
+  height: 16px;
+  width: 16px;
 }
 
 img {
@@ -82,10 +91,6 @@ button {
 
 button:hover {
   background-color: var(--color-main-blue-hover);
-}
-
-label {
-  white-space: nowrap;
 }
 
 hr {
@@ -151,8 +156,10 @@ header {
   padding: var(--padding-md);
   border-radius: var(--border-radius);
   display: grid;
+  width: max-content;
   gap: var(--padding-sm);
   z-index: 1;
+  max-width: calc(100vw - (2 * var(--padding-lg)));
 
   & > button {
     border: 1px solid white;
@@ -176,9 +183,32 @@ header {
 }
 
 .setting {
-  display: grid;
-  grid-template-columns: 1fr 50px;
+  display: none;
+  grid-template-columns: 1fr auto;
   gap: var(--padding-md);
+  align-items: baseline;
+}
+
+.setting-toggle {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  gap: var(--padding-sm);
+}
+
+.setting-wrapper {
+  display: grid;
+  grid-gap: var(--padding-sm);
+}
+
+.setting-wrapper:has(.setting-toggle[data-open="true"]) {
+  & > .setting {
+    display: grid;
+  }
+
+  & > .setting-toggle > span {
+    transform: rotateX(180deg);
+  }
 }
 
 
@@ -300,11 +330,12 @@ main {
   position: relative;
   border-radius: 4px;
   overflow: hidden;
+  outline: 2px solid rgb(83, 83, 0);
 }
 
 .bar-percentage {
   position: absolute;
-  background-color: yellow;
+  background-color: rgb(226, 226, 23);
   height: 100%;
 }
 
