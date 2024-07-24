@@ -92,11 +92,7 @@ const config = {
   SETTING_NO_GLIDER_TWICE: false,
 
   // Inward drifting vehicles
-  INWARD_COMET: 30,
-  INWARD_SPORT: 31,
-  INWARD_JET: 32,
-  INWARD_YOSHI: 33,
-  INWARD_MASTER: 34,
+  INWARD_VEHICLES: [30, 31, 32, 33, 34],
 }
 
 export default config;

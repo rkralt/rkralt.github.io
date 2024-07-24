@@ -19,4 +19,8 @@ function removeArrayFromMainArray(mainArray, arrayToRemove) {
   return mainArray.filter((el) => !arrayToRemove.includes(el));
 }
 
-export { getRandomIntInclusive, getRandomItemFromArray, removeArrayFromMainArray };
+function itemInArray(array, item) {
+  return array.includes(item);
+}
+
+export { getRandomIntInclusive, getRandomItemFromArray, removeArrayFromMainArray, itemInArray };

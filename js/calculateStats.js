@@ -1,6 +1,6 @@
 import config from './config.js';
 import allStats from '../data/mk-stats.js';
-import { getRandomIntInclusive } from './helpers.js';
+import { getRandomIntInclusive, itemInArray } from './helpers.js';
 
 // Calculate stats for all vehicle parts.
 function calculateStats(statsSource) {
@@ -98,17 +98,15 @@ function convertToPercentage(stat) {
   return (stat / maxStat) * 100;
 }
 
+// Display drift type.
 function showDriftType(playerSource, kartInt) {
   const driftType = playerSource.querySelector('.drift-type');
+  const inwardVehicles = config.INWARD_VEHICLES;
 
-  if(kartInt === config.INWARD_COMET ||
-    kartInt === config.INWARD_JET ||
-    kartInt === config.INWARD_MASTER ||
-    kartInt === config.INWARD_SPORT ||
-    kartInt === config.INWARD_YOSHI
-  ) {
+  if(itemInArray(inwardVehicles, kartInt)) {
     driftType.innerText = 'Inward drift'
 
+    // Easter egg :)
     const jankenInt = getRandomIntInclusive(0, 99);
 
     if (jankenInt !== 0) return;
