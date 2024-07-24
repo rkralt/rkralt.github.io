@@ -91,6 +91,8 @@ const config = {
   SETTING_NO_TIRES_TWICE: false,
   SETTING_NO_GLIDER_TWICE: false,
 
+  DEFAULT_SETTINGS_KEY: 'defaultSettings',
+
   // Inward drifting vehicles
   INWARD_VEHICLES: [30, 31, 32, 33, 34],
 }

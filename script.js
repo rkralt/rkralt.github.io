@@ -2,7 +2,7 @@
 import config from './js/config.js';
 
 // UX functions
-import { resetSettings, toggleSettingsMenu, toggleStatsOverlay } from './js/ux.js';
+import { resetSettings, toggleSettingsMenu, toggleStatsOverlay, saveDefaultSettings, loadDefaultSettings, clearDefaultSettings } from './js/ux.js';
 
 // Randomize karts function.
 import randomizePlayerKarts from './js/randomizeKarts.js';
@@ -12,7 +12,6 @@ import randomizeTrack from './js/randomizeTrack.js';
 
 // Calculate stats function.
 import calculateStats from './js/calculateStats.js';
-
 
 // --- CODE ---
 
@@ -53,42 +52,42 @@ document.addEventListener('keyup', function(event) {
 // Randomize track/players on settings change.
 playerCountInput.addEventListener('change', randomizePlayerKarts);
 
-const excludeTourTracksBtn = document.querySelector('#no-tour-tracks');
-excludeTourTracksBtn.addEventListener('click', randomizeTrack);
+const excludeTourTracks = document.querySelector('#no-tour-tracks');
+excludeTourTracks.addEventListener('click', randomizeTrack);
 
-const excludeRetroTracksBtn = document.querySelector('#no-retro-tracks');
+const excludeRetroTracks = document.querySelector('#no-retro-tracks');
 
 // Toggle impossible settings
-excludeRetroTracksBtn.addEventListener('click', () => {
-  if(excludeRetroTracksBtn.checked) {
-    excludeNitroTracksBtn.checked = false;
+excludeRetroTracks.addEventListener('click', () => {
+  if(excludeRetroTracks.checked) {
+    excludeNitroTracks.checked = false;
   }
 })
 
-excludeRetroTracksBtn.addEventListener('click', randomizeTrack); 
+excludeRetroTracks.addEventListener('click', randomizeTrack); 
 
-const excludeNitroTracksBtn = document.querySelector('#no-nitro-tracks');
+const excludeNitroTracks = document.querySelector('#no-nitro-tracks');
 
 // Toggle impossible settings.
-excludeNitroTracksBtn.addEventListener('click', () => {
-  if(excludeNitroTracksBtn.checked) {
-    excludeRetroTracksBtn.checked = false;
+excludeNitroTracks.addEventListener('click', () => {
+  if(excludeNitroTracks.checked) {
+    excludeRetroTracks.checked = false;
   }
 })
 
-excludeNitroTracksBtn.addEventListener('click', randomizeTrack);
+excludeNitroTracks.addEventListener('click', randomizeTrack);
 
 const noTrackTwice = document.querySelector('#no-track-twice');
 noTrackTwice.addEventListener('click', randomizeTrack);
 
-const excludeStupidCharactersBtn = document.querySelector('#no-stupid-characters');
-excludeStupidCharactersBtn.addEventListener('click', randomizePlayerKarts);
+const excludeStupidCharacters = document.querySelector('#no-stupid-characters');
+excludeStupidCharacters.addEventListener('click', randomizePlayerKarts);
 
 const noCharacterTwice = document.querySelector('#no-character-twice');
 noCharacterTwice.addEventListener('click', randomizePlayerKarts);
 
-const excludeBikesBtn = document.querySelector('#no-bikes');
-excludeBikesBtn.addEventListener('click', randomizePlayerKarts);
+const excludeBikes = document.querySelector('#no-bikes');
+excludeBikes.addEventListener('click', randomizePlayerKarts);
 
 const noKartTwice = document.querySelector('#no-kart-twice');
 noKartTwice.addEventListener('click', randomizePlayerKarts);
@@ -102,6 +101,9 @@ noGliderTwice.addEventListener('click', randomizePlayerKarts);
 // Reset settings on button click.
 const resetSettingsBtn = document.querySelector('.reset-settings');
 resetSettingsBtn.addEventListener('click', resetSettings);
+
+// Reset settings once on startup.
+resetSettings();
 
 
 // STATS
@@ -161,4 +163,28 @@ window.addEventListener('click', (e) => {
 const settingsMenu = document.querySelector('.settings-menu');
 settingsMenu.addEventListener('click', (e) => {
   e.stopPropagation();
+})
+
+const saveSettings = document.querySelector('.save-settings');
+saveSettings.addEventListener('click', () => {
+  const settingsToSave = {
+    playerCount: playerCountInput.value,
+    excludeTourTracks: excludeTourTracks.checked,
+    excludeRetroTracks: excludeRetroTracks.checked,
+    excludeNitroTracks: excludeNitroTracks.checked,
+    noTrackTwice: noTrackTwice.checked,
+    excludeStupidCharacters: excludeStupidCharacters.checked,
+    noCharacterTwice: noCharacterTwice.checked,
+    excludeBikes: excludeBikes.checked,
+    noKartTwice: noKartTwice.checked,
+    noTiresTwice: noTiresTwice.checked,
+    noGliderTwice: noGliderTwice.checked
+  }
+
+  saveDefaultSettings(config.DEFAULT_SETTINGS_KEY, settingsToSave);
+})
+
+const clearSettings = document.querySelector('.clear-settings');
+clearSettings.addEventListener('click', () => {
+  clearDefaultSettings(config.DEFAULT_SETTINGS_KEY);
 })

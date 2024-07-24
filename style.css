@@ -154,7 +154,7 @@ header {
   gap: var(--padding-sm);
   z-index: 1;
 
-  & > .reset-settings {
+  & > button {
     border: 1px solid white;
   }
 }
