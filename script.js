@@ -193,6 +193,13 @@ clearSettings.addEventListener('click', () => {
 const settingToggles = document.querySelectorAll('.setting-toggle');
 settingToggles.forEach(toggle => {
   toggle.addEventListener('click', () => {
-    toggleMenu(toggle);
+    
   })
+
+  toggle.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleMenu(toggle);
+    }
+  });
 })
