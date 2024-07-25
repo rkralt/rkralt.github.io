@@ -11,7 +11,7 @@ function resetSettings() {
 
   // Reset player count
   const playerCount = document.querySelector('#player-count');
-  const playerCountDefault = getDefaultValue(defaultSettings.playerCount, config.SETTING_PLAYER_COUNT);
+  const playerCountDefault = defaultSettings.playerCount;
 
   if(parseInt(playerCount.value) !== parseInt(playerCountDefault)) {
     playerCount.value = parseInt(playerCountDefault);
@@ -20,7 +20,7 @@ function resetSettings() {
 
   // Reset no tour tracks
   const excludeTourTracks = document.querySelector('#no-tour-tracks');
-  const excludeTourTracksDefault = getDefaultValue(defaultSettings.excludeTourTracks, config.SETTING_EXCLUDE_TOUR_TRACKS);
+  const excludeTourTracksDefault = defaultSettings.excludeTourTracks;
 
   if(excludeTourTracks.checked !== excludeTourTracksDefault) {
     excludeTourTracks.checked = excludeTourTracksDefault;
@@ -29,7 +29,7 @@ function resetSettings() {
 
   // Reset only nitro tracks
   const excludeRetroTracks = document.querySelector('#no-retro-tracks');
-  const excludeRetroTracksDefault = getDefaultValue(defaultSettings.excludeRetroTracks, config.SETTING_EXCLUDE_RETRO_TRACKS);
+  const excludeRetroTracksDefault = defaultSettings.excludeRetroTracks;
 
   if(excludeRetroTracks.checked !== excludeRetroTracksDefault) {
     excludeRetroTracks.checked = excludeRetroTracksDefault;
@@ -38,7 +38,7 @@ function resetSettings() {
 
   // Reset only retro tracks
   const excludeNitroTracks = document.querySelector('#no-nitro-tracks');
-  const excludeNitroTracksDefault = getDefaultValue(defaultSettings.excludeNitroTracks, config.SETTING_EXCLUDE_NITRO_TRACKS);
+  const excludeNitroTracksDefault = defaultSettings.excludeNitroTracks;
 
   if(excludeNitroTracks.checked !== excludeNitroTracksDefault) {
     excludeNitroTracks.checked = excludeNitroTracksDefault;
@@ -47,7 +47,7 @@ function resetSettings() {
 
   // Reset no track twice
   const noTrackTwice = document.querySelector('#no-track-twice');
-  const noTrackTwiceDefault = getDefaultValue(defaultSettings.noTrackTwice, config.SETTING_NO_TRACK_TWICE);
+  const noTrackTwiceDefault = defaultSettings.noTrackTwice;
 
   if(noTrackTwice.checked !== noTrackTwiceDefault) {
     noTrackTwice.checked = noTrackTwiceDefault;
@@ -56,7 +56,7 @@ function resetSettings() {
 
   // Reset stupid characters
   const excludeStupidCharacters = document.querySelector('#no-stupid-characters');
-  const excludeStupidCharactersDefault = getDefaultValue(defaultSettings.excludeStupidCharacters, config.SETTING_EXCLUDE_STUPID_CHARACTERS);
+  const excludeStupidCharactersDefault = defaultSettings.excludeStupidCharacters;
 
   if(excludeStupidCharacters.checked !== excludeStupidCharactersDefault) {
     excludeStupidCharacters.checked = excludeStupidCharactersDefault;
@@ -65,7 +65,7 @@ function resetSettings() {
 
   // Reset no character twice
   const noCharacterTwice = document.querySelector('#no-character-twice');
-  const noCharacterTwiceDefault = getDefaultValue(defaultSettings.noCharacterTwice, config.SETTINS_NO_CHARACTER_TWICE);
+  const noCharacterTwiceDefault = defaultSettings.noCharacterTwice;
 
   if(noCharacterTwice.checked !== noCharacterTwiceDefault) {
     noCharacterTwice.checked = noCharacterTwiceDefault;
@@ -74,7 +74,7 @@ function resetSettings() {
 
   // Reset no bikes
   const excludeBikes = document.querySelector('#no-bikes');
-  const excludeBikesDefault = getDefaultValue(defaultSettings.excludeBikes, config.SETTING_EXCLUDE_BIKES);
+  const excludeBikesDefault = defaultSettings.excludeBikes;
 
   if(excludeBikes.checked !== excludeBikesDefault) {
     excludeBikes.checked = excludeBikesDefault;
@@ -83,7 +83,7 @@ function resetSettings() {
 
   // Reset no kart twice
   const noKartTwice = document.querySelector('#no-kart-twice');
-  const noKartTwiceDefault = getDefaultValue(defaultSettings.noKartTwice, config.SETTING_NO_KART_TWICE);
+  const noKartTwiceDefault = defaultSettings.noKartTwice;
 
   if(noKartTwice.checked !== noKartTwiceDefault) {
     noKartTwice.checked = noKartTwiceDefault;
@@ -92,7 +92,7 @@ function resetSettings() {
 
   // Reset no tires twice
   const noTiresTwice = document.querySelector('#no-tires-twice');
-  const noTiresTwiceDefault = getDefaultValue(defaultSettings.noTiresTwice, config.SETTING_NO_TIRES_TWICE);
+  const noTiresTwiceDefault = defaultSettings.noTiresTwice;
 
   if(noTiresTwice.checked !== noTiresTwiceDefault) {
     noTiresTwice.checked = noTiresTwiceDefault;
@@ -101,7 +101,7 @@ function resetSettings() {
 
   // Reset no character twice
   const noGliderTwice = document.querySelector('#no-glider-twice');
-  const noGliderTwiceDefault = getDefaultValue(defaultSettings.noGliderTwice, config.SETTING_NO_GLIDER_TWICE);
+  const noGliderTwiceDefault = defaultSettings.noGliderTwice;
 
   if(noGliderTwice.checked !== noGliderTwiceDefault) {
     noGliderTwice.checked = noGliderTwiceDefault;
@@ -116,14 +116,6 @@ function resetSettings() {
   // Only randomize track once if needed.
   if(randomTrack) {
     randomizeTrack();
-  }
-}
-
-function getDefaultValue(savedDefaultValue, fallbackValue) {
-  if(savedDefaultValue !== null) {
-    return savedDefaultValue;
-  } else {
-    return fallbackValue;
   }
 }
 
