@@ -1,6 +1,8 @@
-import config from './config.js';
+import config from '../../data/config.js';
 import randomizePlayerKarts from './randomizeKarts.js';
 import randomizeTrack from './randomizeTrack.js';
+import randomizeItems from './randomizeItems.js';
+import { loadDefaultSettings } from './localStorage.js';
 
 // Reset all settings
 function resetSettings() {
@@ -8,6 +10,7 @@ function resetSettings() {
 
   let randomCharacter = false;
   let randomTrack = false;
+  let randomItems = false;
 
   // Reset player count
   const playerCount = document.querySelector('#player-count');
@@ -108,6 +111,24 @@ function resetSettings() {
     randomCharacter = true;
   }
 
+  // Reset min item amount.
+  const minItems = document.querySelector('#min-items');
+  const minItemsDefault = defaultSettings.minItems;
+
+  if(parseInt(minItems.value) !== parseInt(minItemsDefault)) {
+    minItems.value = parseInt(minItemsDefault);
+    randomItems = true;
+  }
+
+  // Reset max item amount.
+  const maxItems = document.querySelector('#max-items');
+  const maxItemsDefault = defaultSettings.maxItems;
+
+  if(parseInt(maxItems.value) !== parseInt(maxItemsDefault)) {
+    maxItems.value = parseInt(maxItemsDefault);
+    randomItems = true;
+  }
+
   // Only randomize karts once if needed.
   if(randomCharacter) {
     randomizePlayerKarts();
@@ -117,38 +138,10 @@ function resetSettings() {
   if(randomTrack) {
     randomizeTrack();
   }
-}
 
-function saveDefaultSettings(key, settings) {
-  localStorage.setItem(key, JSON.stringify(settings));
-}
-
-function loadDefaultSettings(key) {
-  const arrayString = localStorage.getItem(key);
-  
-  if(arrayString === null) {
-    const defaultSettings = {
-      playerCount: config.SETTING_PLAYER_COUNT,
-      excludeTourTracks: config.SETTING_EXCLUDE_TOUR_TRACKS,
-      excludeRetroTracks: config.SETTING_EXCLUDE_RETRO_TRACKS,
-      excludeNitroTracks: config.SETTING_EXCLUDE_NITRO_TRACKS,
-      noTrackTwice: config.SETTING_NO_TRACK_TWICE,
-      excludeStupidCharacters: config.SETTING_EXCLUDE_STUPID_CHARACTERS,
-      noCharacterTwice: config.SETTINS_NO_CHARACTER_TWICE,
-      excludeBikes: config.SETTING_EXCLUDE_BIKES,
-      noKartTwice: config.SETTING_NO_KART_TWICE,
-      noTiresTwice: config.SETTING_NO_TIRES_TWICE,
-      noGliderTwice: config.SETTING_NO_GLIDER_TWICE
-    }
-
-    return defaultSettings
-  } else {
-    return JSON.parse(arrayString);
+  if(randomItems) {
+    randomizeItems();
   }
-}
-
-function clearDefaultSettings(key) {
-  localStorage.removeItem(key);
 }
 
 // Open menu when clicked on the menu toggle button.
@@ -184,4 +177,4 @@ function toggleMenu(menu) {
   }
 }
 
-export { resetSettings, toggleSettingsMenu, toggleStatsOverlay, saveDefaultSettings, loadDefaultSettings, clearDefaultSettings, toggleMenu };
+export { resetSettings, toggleSettingsMenu, toggleStatsOverlay, toggleMenu };

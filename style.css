@@ -20,7 +20,10 @@
   --border-radius: 10px;
 
   --color-main-blue: hsl(190, 100%, 10%);
+  --color-main-blue-lighter: hsl(190, 100%, 17%);
   --color-main-blue-hover: hsl(190, 100%, 13%);
+  --color-main-blue-hover-lighter: hsl(190, 100%, 20%);
+
   --color-accent: #00ACD0;
   --color-blur-bg: rgba(0, 0, 0, 0.4);
   --filter-blur-bg: blur(2px);
@@ -82,7 +85,7 @@ img {
 }
 
 button {
-  background-color: var(--color-main-blue);
+  background: linear-gradient(180deg, var(--color-main-blue-lighter) 0%, var(--color-main-blue) 100%);
   border: none;
   padding: var(--padding-sm);
   cursor: pointer;
@@ -90,11 +93,17 @@ button {
 }
 
 button:hover {
-  background-color: var(--color-main-blue-hover);
+  background: linear-gradient(180deg, var(--color-main-blue-hover-lighter) 0%, var(--color-main-blue-hover) 100%);
 }
 
 hr {
   color: white;
+}
+
+svg {
+  height: clamp(30px, 4vw, 40px);
+  width: clamp(30px, 4vw, 40px);
+  fill: white;
 }
 
 
@@ -131,7 +140,7 @@ header {
 
 .settings-toggle {
   cursor: pointer;
-  background-color: transparent;
+  background: transparent;
 
   & > svg {
     vertical-align: middle;
@@ -141,7 +150,7 @@ header {
 }
 
 .settings-toggle:hover {
-  background-color: transparent;
+  background: transparent;
 
   & > svg {
     fill: var(--color-main-blue-hover);
@@ -161,7 +170,11 @@ header {
   z-index: 1;
   max-width: calc(100vw - (2 * var(--padding-lg)));
 
-  & > button {
+  & h3, label {
+    user-select: none;
+  }
+
+  & button {
     border: 1px solid white;
   }
 }
@@ -184,7 +197,7 @@ header {
 
 .setting {
   display: none;
-  grid-template-columns: 1fr auto;
+  justify-content: space-between;
   gap: var(--padding-md);
   align-items: baseline;
 }
@@ -194,6 +207,7 @@ header {
   justify-content: space-between;
   cursor: pointer;
   gap: var(--padding-sm);
+  align-items: center;
 }
 
 .setting-wrapper {
@@ -203,7 +217,7 @@ header {
 
 .setting-wrapper:has(.setting-toggle[data-open="true"]) {
   & > .setting {
-    display: grid;
+    display: flex;
   }
 
   & > .setting-toggle > span {
@@ -376,6 +390,28 @@ main {
   max-width: 150px;
 }
 
+.items-info {
+  background-color: var(--color-blur-bg);
+  backdrop-filter: var(--filter-blur-bg);
+  border-radius: var(--border-radius);
+  padding: var(--padding-md);
+  box-shadow: var(--box-shadow-blur);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: var(--padding-sm);
+  justify-items: center;
+}
+
+.item {
+  max-width: 50px;
+  width: 100%;
+  max-height: 50px;
+  height: 100%;
+}
+
+.item[data-show="false"] {
+  display: none;
+}
 
 /* MEDIA QUERY */
 @media only screen and (min-width: 800px) {

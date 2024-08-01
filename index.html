@@ -27,7 +27,11 @@
         <div class="setting-wrapper">
           <div class="setting-toggle" data-open="false" tabindex="0">
             <h3>Player settings</h3>
-            <span>V</span>
+            <span>
+              <svg class="arrow-icon" viewBox="0 0 24 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16l-8-8h16l-8 8z" />
+              </svg>
+            </span>
           </div>
           <div class="setting">
             <label for="player-count">Players</label>
@@ -38,7 +42,11 @@
         <div class="setting-wrapper">
           <div class="setting-toggle" data-open="false" tabindex="0">
             <h3>Track settings</h3>
-            <span>V</span>
+            <span>
+              <svg class="arrow-icon" viewBox="0 0 24 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16l-8-8h16l-8 8z" />
+              </svg>
+            </span>
           </div>
           <div class="setting">
             <label for="no-tour-tracks">No Tour tracks</label>
@@ -61,7 +69,11 @@
         <div class="setting-wrapper">
           <div class="setting-toggle" data-open="false" tabindex="0">
             <h3>Character settings</h3>
-            <span>V</span>
+            <span>
+              <svg class="arrow-icon" viewBox="0 0 24 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16l-8-8h16l-8 8z" />
+              </svg>
+            </span>
           </div>
           <div class="setting">
             <label for="no-stupid-characters">No stupid characters</label>
@@ -76,7 +88,11 @@
         <div class="setting-wrapper">
           <div class="setting-toggle" data-open="false" tabindex="0">
             <h3>Kart settings</h3>
-            <span>V</span>
+            <span>
+              <svg class="arrow-icon" viewBox="0 0 24 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16l-8-8h16l-8 8z" />
+              </svg>
+            </span>
           </div>
           <div class="setting">
             <label for="no-bikes">No bikes</label>
@@ -96,9 +112,41 @@
           </div>
         </div>
         <hr />
+        <div class="setting-wrapper">
+          <div class="setting-toggle" data-open="false" tabindex="0">
+            <h3>Item settings</h3>
+            <span>
+              <svg class="arrow-icon" viewBox="0 0 24 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16l-8-8h16l-8 8z" />
+              </svg>
+            </span>
+          </div>
+          <div class="setting">
+            <label for="min-items">Minimum items</label>
+            <input type="number" name="min-items" id="min-items" value="5" min="1">
+          </div>
+          <div class="setting">
+            <label for="max-items">Maximum items</label>
+            <input type="number" name="max-items" id="max-items" value="10" min="1">
+          </div>
+        </div>
+        <hr />
+        <div class="setting-wrapper">
+          <div class="setting-toggle" data-open="false" tabindex="0">
+            <h3>Manage default settings</h3>
+            <span>
+              <svg class="arrow-icon" viewBox="0 0 24 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16l-8-8h16l-8 8z" />
+              </svg>
+            </span>
+          </div>
+          <div class="setting">
+            <button class="save-settings">Save settings</button>
+            <button class="clear-settings">Clear settings</button>
+          </div>
+        </div>
+        <hr />
         <button class="reset-settings">Reset settings</button>
-        <button class="save-settings">Save settings</button>
-        <button class="clear-settings">Clear settings</button>
       </div>
     </div>
   </header>
@@ -1389,6 +1437,33 @@
       <div class="track-info">
         <img class="cup">
         <img class="track">
+      </div>
+      <div class="subheader">
+        <h2>Items</h2>
+        <button id="randomize-items">Randomize</button>
+      </div>
+      <div class="items-info">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
+        <img class="item" data-show="false">
       </div>
     </div>
   </main>

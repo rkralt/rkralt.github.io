@@ -6,12 +6,21 @@ function getRandomIntInclusive(min, max) {
 }
 
 // Function to get random item from array.
-function getRandomItemFromArray(arr) {
+function getRandomItemFromArray(arr, removeSelected = false) {
   const arrayLength = arr.length;
 
+  if (arrayLength === 0) {
+    return null;
+  }
+
   const randomIndex = Math.floor(Math.random() * arrayLength);
-  
-  return arr[randomIndex];
+
+  if(removeSelected) {
+    const [removedItem] = arr.splice(randomIndex, 1);
+    return removedItem;
+  } else {
+    return arr[randomIndex];
+  }  
 }
 
 // Function to remove values of an array from the main array.

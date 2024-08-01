@@ -1,4 +1,5 @@
-const config = {
+// Object.freeze zodat je de waardes in de config niet kan aanpassen via de code (zou door const niet moeten kunnen maar javascript zuigt).
+const config = Object.freeze({
   // Max stat
   MAX_STAT: 6,
 
@@ -37,6 +38,7 @@ const config = {
   BASE_URL_GLIDERS: 'Images/Gliders/',
   BASE_URL_CUP: 'Images/Cup/',
   BASE_URL_TRACKS: 'Images/Tracks/',
+  BASE_URL_ITEMS: 'Images/Items/',
 
   // URL extension for specific characters with more than 1 variant.
   URL_EXTENSION_BIRDO: 'Birdo/',
@@ -77,9 +79,15 @@ const config = {
   // Array of all gliders (numbers 0 to 14).
   GLIDERS_ALL: Array.from({length: 15}, (v, i) => i),
 
+  // Array of all items (numbers 0 to 20).
+  ITEMS_ALL: Array.from({length: 21}, (v, i) => i),
+
+  // Default settings for inputs.
+  SETTING_MAX_PLAYER_COUNT: 12,
+  SETTING_MAX_ITEMS_COUNT: 21,
+
   // Default settings
   SETTING_PLAYER_COUNT: 2,
-  SETTING_MAX_PLAYER_COUNT: 12,
   SETTING_EXCLUDE_TOUR_TRACKS: false,
   SETTING_EXCLUDE_NITRO_TRACKS: false,
   SETTING_EXCLUDE_RETRO_TRACKS: false,
@@ -90,11 +98,14 @@ const config = {
   SETTING_NO_KART_TWICE: false,
   SETTING_NO_TIRES_TWICE: false,
   SETTING_NO_GLIDER_TWICE: false,
+  SETTING_USE_RANDOM_ITEMS: false,
+  SETTING_MIN_ITEMS: 5,
+  SETTING_MAX_ITEMS: 10,
 
   DEFAULT_SETTINGS_KEY: 'defaultSettings',
 
   // Inward drifting vehicles
   INWARD_VEHICLES: [30, 31, 32, 33, 34],
-}
+})
 
 export default config;

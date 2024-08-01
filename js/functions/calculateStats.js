@@ -1,5 +1,5 @@
-import config from './config.js';
-import allStats from '../data/mk-stats.js';
+import config from '../../data/config.js';
+import allStats from '../../data/mk-stats.js';
 import { getRandomIntInclusive, itemInArray } from './helpers.js';
 
 // Calculate stats for all vehicle parts.
