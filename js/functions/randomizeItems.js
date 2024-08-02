@@ -7,6 +7,7 @@ function randomizeItems() {
   // Hide all items.
   allItemsToHide.forEach(item => {
     item.dataset.show = "false";
+    item.src = "";
   })
 
   // Choose amount of items to show, between min and max.
