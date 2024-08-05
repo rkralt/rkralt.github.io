@@ -48,6 +48,15 @@ function resetSettings() {
     randomTrack = true;
   }
 
+  // Reset only DLC tracks
+  const excludeDLCTracks = document.querySelector('#no-dlc-tracks');
+  const excludeDLCTracksDefault = defaultSettings.excludeDLCTracks;
+
+  if(excludeDLCTracks.checked !== excludeDLCTracksDefault) {
+    excludeDLCTracks.checked = excludeDLCTracksDefault;
+    randomTrack = true;
+  }
+
   // Reset no track twice
   const noTrackTwice = document.querySelector('#no-track-twice');
   const noTrackTwiceDefault = defaultSettings.noTrackTwice;
@@ -63,6 +72,24 @@ function resetSettings() {
 
   if(excludeStupidCharacters.checked !== excludeStupidCharactersDefault) {
     excludeStupidCharacters.checked = excludeStupidCharactersDefault;
+    randomCharacter = true;
+  }
+
+  // Reset female characters
+  const excludeFemaleCharacters = document.querySelector('#no-female-characters');
+  const excludeFemaleCharactersDefault = defaultSettings.excludeFemaleCharacters;
+
+  if(excludeFemaleCharacters.checked !== excludeFemaleCharactersDefault) {
+    excludeFemaleCharacters.checked = excludeFemaleCharactersDefault;
+    randomCharacter = true;
+  }
+
+  // Reset female characters
+  const excludeMaleCharacters = document.querySelector('#no-male-characters');
+  const excludeMaleCharactersDefault = defaultSettings.excludeMaleCharacters;
+
+  if(excludeMaleCharacters.checked !== excludeMaleCharactersDefault) {
+    excludeMaleCharacters.checked = excludeMaleCharactersDefault;
     randomCharacter = true;
   }
 

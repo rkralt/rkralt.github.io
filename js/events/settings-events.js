@@ -35,6 +35,9 @@ excludeNitroTracks.addEventListener('click', () => {
 
 excludeNitroTracks.addEventListener('click', randomizeTrack);
 
+const excludeDLCTracks = document.querySelector('#no-dlc-tracks');
+excludeDLCTracks.addEventListener('click', randomizeTrack);
+
 const noTrackTwice = document.querySelector('#no-track-twice');
 noTrackTwice.addEventListener('click', randomizeTrack);
 
@@ -113,8 +116,11 @@ saveSettings.addEventListener('click', () => {
     excludeTourTracks: excludeTourTracks.checked,
     excludeRetroTracks: excludeRetroTracks.checked,
     excludeNitroTracks: excludeNitroTracks.checked,
+    excludeDLCTracks: excludeDLCTracks.checked,
     noTrackTwice: noTrackTwice.checked,
     excludeStupidCharacters: excludeStupidCharacters.checked,
+    excludeFemaleCharacters: excludeFemaleCharacters.checked,
+    excludeMaleCharacters: excludeMaleCharacters.checked,
     noCharacterTwice: noCharacterTwice.checked,
     excludeBikes: excludeBikes.checked,
     noKartTwice: noKartTwice.checked,
