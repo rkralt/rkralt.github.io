@@ -5,10 +5,17 @@ import {getRandomItemFromArray, removeArrayFromMainArray} from './helpers.js';
 function randomizeTrack() {
   let allTracks = config.TRACKS_ALL;
   const trackSource = document.querySelector('.track');
+  const excludeDLCTracks = document.querySelector('#no-dlc-tracks').checked;
   const excludeTourTracks = document.querySelector('#no-tour-tracks').checked;
   const excludeRetroTracks = document.querySelector('#no-retro-tracks').checked;
   const excludeNitroTracks = document.querySelector('#no-nitro-tracks').checked;
   const noTrackTwice = document.querySelector('#no-track-twice').checked;
+
+
+  // Remove tour tracks from list if checkbox is checked.
+  if(excludeDLCTracks) {
+    allTracks = removeArrayFromMainArray(allTracks, config.TRACKS_NO_DLC);
+  }  
 
   // Prevent impossible settings combination (should already be impossible but just in case something goes wrong).
   if(excludeRetroTracks && excludeNitroTracks) {

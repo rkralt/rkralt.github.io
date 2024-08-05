@@ -42,12 +42,34 @@ function setCharacterImage(playerSource) {
   let variantInt = null;
   const characterSource = playerSource.querySelector('.character');
   let allCharacters = config.CHARACTERS_ALL;
+  
+  const excludeStupidCharacters = document.querySelector('#no-stupid-characters').checked;
+  const excludeFemaleCharacters = document.querySelector('#no-female-characters');
+  const excludeMaleCharacters = document.querySelector('#no-male-characters');
+
 
   // No stupid characters.
-  const excludeStupidCharacters = document.querySelector('#no-stupid-characters').checked;
-
   if(excludeStupidCharacters) {
     allCharacters = removeArrayFromMainArray(allCharacters, config.CHARACTERS_REMOVE_STUPID);
+  }
+
+  // Prevent impossible settings combination (should already be impossible but just in case something goes wrong).
+  if(excludeFemaleCharacters.checked && excludeMaleCharacters.checked) {
+    console.error('ERROR 1: invalid settings combination!');
+    alert('This settings combination is not possible. Reverted settings.');
+  
+    excludeFemaleCharacters.checked = false;
+    excludeMaleCharacters.checked = false;
+  }
+
+  // No female characters.
+  if(excludeFemaleCharacters.checked) {
+    allCharacters = removeArrayFromMainArray(allCharacters, config.CHARACTERS_REMOVE_FEMALE);
+  }    
+
+  // No male characters.
+  if(excludeMaleCharacters.checked) {
+    allCharacters = removeArrayFromMainArray(allCharacters, config.CHARACTERS_REMOVE_MALE);
   }
 
   // No character twice.

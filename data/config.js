@@ -52,6 +52,9 @@ const config = Object.freeze({
   // Array of all tracks (numbers 0 to 95).
   TRACKS_ALL: Array.from({length: 96}, (v, i) => i),
 
+  // Array of all DLC tracks
+  TRACKS_NO_DLC: [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95],
+
   // Haal die pokke tracks uit het spelletje!
   TRACKS_TO_REMOVE_TOUR: [48, 52, 56, 60, 64, 68, 72, 76, 79, 80, 84, 87, 88, 92],
 
@@ -73,6 +76,12 @@ const config = Object.freeze({
   // Ja ook jij Pink Gold Peach!
   CHARACTERS_REMOVE_STUPID: [5, 6, 13, 18, 19, 20, 21, 22, 34, 39, 40, 42],
 
+  //Woman are gross
+  CHARACTERS_REMOVE_FEMALE: [2, 3, 4, 6, 7, 13, 18, 19, 20, 22, 23, 34, 39, 40, 42, 46, 47],
+
+  //feminism!
+  CHARACTERS_REMOVE_MALE: [0, 1, 5, 8, 9, 10, 11, 12, 14, 15, 16, 17, 21, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 41, 43, 44, 45, 46, 47],
+
   // Array of all tires (numbers 0 to 21).
   TIRES_ALL: Array.from({length: 22}, (v, i) => i),
 
@@ -93,6 +102,8 @@ const config = Object.freeze({
   SETTING_EXCLUDE_RETRO_TRACKS: false,
   SETTING_NO_TRACK_TWICE: false,
   SETTING_EXCLUDE_STUPID_CHARACTERS: false,
+  SETTING_EXLUDE_FEMALE_CHARACTERS: false,
+  SETTING_EXLUDE_MALE_CHARACTERS: false,
   SETTINS_NO_CHARACTER_TWICE: false,
   SETTING_EXCLUDE_BIKES: false,
   SETTING_NO_KART_TWICE: false,

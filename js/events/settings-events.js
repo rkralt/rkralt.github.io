@@ -59,6 +59,26 @@ noGliderTwice.addEventListener('click', randomizePlayerKarts);
 const minItems = document.querySelector('#min-items');
 const maxItems = document.querySelector('#max-items');
 
+const excludeFemaleCharacters = document.querySelector('#no-female-characters');
+const excludeMaleCharacters = document.querySelector('#no-male-characters');
+
+// Toggle impossible settings.
+excludeFemaleCharacters.addEventListener('click', () => {
+  if(excludeMaleCharacters.checked) {
+    excludeMaleCharacters.checked = false;
+  }
+})
+
+// Toggle impossible settings.
+excludeMaleCharacters.addEventListener('click', () => {
+  if(excludeFemaleCharacters.checked) {
+    excludeFemaleCharacters.checked = false;
+  }
+})
+
+excludeFemaleCharacters.addEventListener('click', randomizePlayerKarts);
+excludeMaleCharacters.addEventListener('click', randomizePlayerKarts);
+
 minItems.addEventListener('change', () => {
   let minItemsCurrentMin = document.querySelector('#min-items');
   let maxItemsCurrentMin = document.querySelector('#max-items');
@@ -101,7 +121,7 @@ saveSettings.addEventListener('click', () => {
     noTiresTwice: noTiresTwice.checked,
     noGliderTwice: noGliderTwice.checked,
     minItems: minItems.value,
-    maxItems: maxItems.value
+    maxItems: maxItems.value,
   }
 
   saveDefaultSettings(config.DEFAULT_SETTINGS_KEY, settingsToSave);

@@ -90,7 +90,6 @@ button {
   padding: var(--padding-sm);
   cursor: pointer;
   border-radius: var(--border-radius);
-  box-shadow: inset 0px -5px 5px -3px rgba(0, 0, 0, 0.75);
 }
 
 button:hover {
@@ -142,7 +141,6 @@ header {
 .settings-toggle {
   cursor: pointer;
   background: transparent;
-  box-shadow: none;
 
   & > svg {
     vertical-align: middle;
@@ -177,7 +175,7 @@ header {
   }
 
   & button {
-    border: 1px solid gray;
+    border: 1px solid white;
   }
 }
 
@@ -295,8 +293,8 @@ main {
 }
 
 .hide-stats {
-  border-left: 1px solid gray;
-  border-bottom: 1px solid gray;
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
   border-radius: 0 var(--border-radius) 0 var(--border-radius);
   width: fit-content;
   padding: var(--padding-sm) var(--padding-md);
