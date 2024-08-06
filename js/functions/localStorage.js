@@ -26,10 +26,11 @@ function loadDefaultSettings(key) {
       noTiresTwice: config.SETTING_NO_TIRES_TWICE,
       noGliderTwice: config.SETTING_NO_GLIDER_TWICE,
       minItems: config.SETTING_MIN_ITEMS,
-      maxItems: config.SETTING_MAX_ITEMS
+      maxItems: config.SETTING_MAX_ITEMS,
+      noUnlockables: config.SETTING_NO_UNLOCKABLES
     }
 
-    return defaultSettings
+    return defaultSettings;
   } else {
     return JSON.parse(arrayString);
   }

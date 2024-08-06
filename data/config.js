@@ -118,6 +118,7 @@ const config = Object.freeze({
   SETTING_USE_RANDOM_ITEMS: false,
   SETTING_MIN_ITEMS: 1,
   SETTING_MAX_ITEMS: 21,
+  SETTING_NO_UNLOCKABLES: false,
 
   DEFAULT_SETTINGS_KEY: 'defaultSettings',
 

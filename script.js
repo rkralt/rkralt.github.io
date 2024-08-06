@@ -15,6 +15,3 @@ import './js/events/settings-events.js';
 
 // Stats events
 import './js/events/stats-events.js';
-
-// UX STUFF
-import './js/events/ux-events.js'

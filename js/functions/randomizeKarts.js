@@ -54,7 +54,7 @@ function setCharacterImage(playerSource) {
 
   // Prevent impossible settings combination (should already be impossible but just in case something goes wrong).
   if(excludeFemaleCharacters.checked && excludeMaleCharacters.checked) {
-    console.error('ERROR 1: invalid settings combination!');
+    console.error('ERROR 2: invalid settings combination!');
     alert('This settings combination is not possible. Reverted settings.');
   
     excludeFemaleCharacters.checked = false;

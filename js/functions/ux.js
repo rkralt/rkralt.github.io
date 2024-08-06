@@ -21,6 +21,15 @@ function resetSettings() {
     randomCharacter = true;
   }
 
+  // Reset no unlockables.
+  const noUnlockables = document.querySelector('#no-unlockables');
+  const noUnlockablesDefault = defaultSettings.noUnlockables;
+
+  if(noUnlockables.checked !== noUnlockablesDefault) {
+    noUnlockables.checked = noUnlockablesDefault;
+    randomCharacter = true;
+  }
+
   // Reset no tour tracks
   const excludeTourTracks = document.querySelector('#no-tour-tracks');
   const excludeTourTracksDefault = defaultSettings.excludeTourTracks;
@@ -171,20 +180,6 @@ function resetSettings() {
   }
 }
 
-// Open menu when clicked on the menu toggle button.
-// Close menu when clicked anywhere on the screen or on the menu toggle button when the menu is open.
-function toggleSettingsMenu(e) {
-  const settingsToggle = e.target.closest('.settings-toggle');
-
-  const clickedOnClosedToggle = settingsToggle && settingsToggle.dataset.open === 'false';
-
-  document.querySelectorAll('.settings-toggle').forEach(toggle => toggle.dataset.open = 'false');
-
-  if (clickedOnClosedToggle) {
-    settingsToggle.dataset.open = 'true';
-  }
-}
-
 function toggleStatsOverlay(showStatsBtn) {
   const kartItem = showStatsBtn.closest('.kart-item');
   const statsOverlay = kartItem.querySelector('.stats-overlay');
@@ -196,12 +191,4 @@ function toggleStatsOverlay(showStatsBtn) {
   }
 }
 
-function toggleMenu(menu) {
-  if(menu.dataset.open === 'false') {
-    menu.dataset.open = 'true';
-  } else {
-    menu.dataset.open = 'false';
-  }
-}
-
-export { resetSettings, toggleSettingsMenu, toggleStatsOverlay, toggleMenu };
+export { resetSettings, toggleStatsOverlay };
