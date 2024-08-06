@@ -47,7 +47,6 @@ function setCharacterImage(playerSource) {
   const excludeFemaleCharacters = document.querySelector('#no-female-characters');
   const excludeMaleCharacters = document.querySelector('#no-male-characters');
 
-
   // No stupid characters.
   if(excludeStupidCharacters) {
     allCharacters = removeArrayFromMainArray(allCharacters, config.CHARACTERS_REMOVE_STUPID);
@@ -146,6 +145,13 @@ function setKartsImage(playerSource) {
     allKarts = removeArrayFromMainArray(allKarts, config.REMOVE_BIKES);
   }
 
+  //no unlockable kart
+  const excludeUnlockables = document.querySelector('#no-unlockables').checked;
+  
+  if(excludeUnlockables) {
+    allKarts = removeArrayFromMainArray(allKarts, config.UNLOCKABLE_PARTS_KART);
+  }
+
   // No kart twice
   const noKartTwice = document.querySelector('#no-kart-twice').checked;
 
@@ -168,6 +174,13 @@ function setKartsImage(playerSource) {
 function setTiresImage(playerSource) {
   const tiresSource = playerSource.querySelector('.tires');
   let allTires = config.TIRES_ALL;
+
+  //no unlockable tires
+  const excludeUnlockables = document.querySelector('#no-unlockables').checked;
+  
+  if(excludeUnlockables) {
+    allTires = removeArrayFromMainArray(allTires, config.UNLOCKABLE_PARTS_TIRE);
+  }
 
   // No tires twice
   const noTiresTwice = document.querySelector('#no-tires-twice').checked;
@@ -192,7 +205,14 @@ function setGlidersImage(playerSource) {
   const gliderSource = playerSource.querySelector('.glider');
   let allGliders = config.GLIDERS_ALL;
 
-  // No tires twice
+  //no unlockable glider
+  const excludeUnlockables = document.querySelector('#no-unlockables').checked;
+  
+  if(excludeUnlockables) {
+    allGliders = removeArrayFromMainArray(allGliders, config.UNLOCKABLE_PARTS_GLIDER);
+  }
+
+  // No Glider twice
   const noGliderTwice = document.querySelector('#no-glider-twice').checked;
 
   if(noGliderTwice) {

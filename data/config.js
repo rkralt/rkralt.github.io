@@ -63,7 +63,12 @@ const config = Object.freeze({
 
   // Lekker ouderwetse mappies spelen!
   TRACKS_TO_REMOVE_NITRO: [0, 1, 2, 3, 4 , 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 33, 34, 35, 38, 39, 42, 43, 46, 47, 55, 63, 70, 75, 83, 91],
-  
+
+  // Unlockables
+  UNLOCKABLE_PARTS_KART: [1, 2, 4, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 24, 25, 26, 27, 28, 31, 32, 33, 34, 36, 37, 38, 40],
+  UNLOCKABLE_PARTS_TIRE: [4, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+  UNLOCKABLE_PARTS_GLIDER: [1, 2, 3, 4, 7, 8, 10, 11, 12, 13, 14],
+
   // Array of all karts (numbers 0 to 40).
   KARTS_ALL: Array.from({length: 41}, (v, i) => i),
 
