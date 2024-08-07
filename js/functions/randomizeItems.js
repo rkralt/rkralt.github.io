@@ -16,16 +16,22 @@ function randomizeItems() {
   let itemAmount = getRandomIntInclusive(minItems, maxItems);
 
   const allItems = Array.from(config.ITEMS_ALL);
+  const arraySorted = [];
 
   while(itemAmount > 0) {
-    const nextItem = document.querySelector('.item[data-show="false"]');
     const itemInt = getRandomItemFromArray(allItems, true);
-
-    nextItem.dataset.show = "true";
-    nextItem.src = config.BASE_URL_ITEMS + itemInt + '.png';
+    arraySorted.push(itemInt);
 
     itemAmount--;
   }
+
+  arraySorted.sort((a, b) => a - b);
+
+  arraySorted.forEach(itemInt => {
+    const nextItem = document.querySelector('.item[data-show="false"]');
+    nextItem.dataset.show = "true";
+    nextItem.src = config.BASE_URL_ITEMS + itemInt + '.png';
+  })
 }
 
 export default randomizeItems;
