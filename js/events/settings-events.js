@@ -9,7 +9,13 @@ const playerCountInput = document.querySelector('#player-count');
 
 // PLAYERS
 // Player count
-playerCountInput.addEventListener('change', randomizePlayerKarts);
+playerCountInput.addEventListener('change', () => {
+  if(playerCountInput.value > config.SETTING_MAX_PLAYER_COUNT) {
+    playerCountInput.value = config.SETTING_MAX_PLAYER_COUNT
+  }
+
+  randomizePlayerKarts();
+});
 
 // No unlockables
 const noUnlockables = document.querySelector('#no-unlockables');
@@ -106,6 +112,10 @@ minItems.addEventListener('change', () => {
   let minItemsCurrentMin = document.querySelector('#min-items');
   let maxItemsCurrentMin = document.querySelector('#max-items');
 
+  if(minItemsCurrentMin.value > config.SETTING_MAX_ITEMS_COUNT) {
+    minItemsCurrentMin.value = config.SETTING_MAX_ITEMS_COUNT;
+  }
+
   if(parseInt(minItemsCurrentMin.value) > parseInt(maxItemsCurrentMin.value)) {
     maxItemsCurrentMin.value = minItemsCurrentMin.value;
   }
@@ -119,6 +129,10 @@ const maxItems = document.querySelector('#max-items');
 maxItems.addEventListener('change', () => {
   let minItemsCurrentMax = document.querySelector('#min-items');
   let maxItemsCurrentMax = document.querySelector('#max-items');
+
+  if(maxItemsCurrentMax.value > config.SETTING_MAX_ITEMS_COUNT) {
+    maxItemsCurrentMax.value = config.SETTING_MAX_ITEMS_COUNT;
+  }
 
   if(parseInt(maxItemsCurrentMax.value) < parseInt(minItemsCurrentMax.value)) {
     minItemsCurrentMax.value = maxItemsCurrentMax.value;
