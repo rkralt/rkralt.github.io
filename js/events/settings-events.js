@@ -129,11 +129,7 @@ const setDefaultBtn = document.querySelector('#set-default');
 setDefaultBtn.addEventListener('click', () => {
   saveSettings(config.USER_DEFAULT_SETTINGS_KEY);
 
-  randomizePlayerKarts();
-  randomizeTrack();
-  randomizeItems();
-
-  settingsMenu.close();
+  alert('Your custom default settings have been saved!');
 });
 
 const resetDefault = document.querySelector('#reset-default');
@@ -143,5 +139,5 @@ resetDefault.addEventListener('click', () => {
   const settings = getSettings();
   loadSettings(settings);
 
-  settingsMenu.close();
+  alert('Your custom default settings have been reset!');
 });

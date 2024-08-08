@@ -83,7 +83,7 @@ function saveSettings(localStorageKey) {
 }
 
 function clearSettings() {
-  localStorage.clear();
+  localStorage.clear(config.USER_DEFAULT_SETTINGS_KEY);
 }
 
 export { getSettings, loadSettings, saveSettings, clearSettings };

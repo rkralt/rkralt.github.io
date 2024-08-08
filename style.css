@@ -216,10 +216,6 @@ header {
   background-color: var(--color-main-blue);
   padding: var(--padding-sm);
   border-radius: var(--border-radius);
-
-  &:has(button) {
-    justify-content: center;
-  }
 }
 
 /* MAIN LAYOUT */
