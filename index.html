@@ -12,129 +12,129 @@
   <dialog id="settings-menu">
     <div class="dialog-header">
       <h2>Settings</h2>
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        id="close-dialog"
-      >
-        <path
-          d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z"
-          fill="currentColor"
-        />
-      </svg>
+      <button id="close-dialog">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z"
+            fill="currentColor" />
+        </svg>
+      </button>
     </div>
     <div class="dialog-body">
       <div class="setting-wrapper">
         <h3>Players</h3>
         <div class="setting">
           <label for="player-count">Players</label>
-          <input type="number" name="player-count" id="player-count" value="2" min="1">
+          <input type="number" name="player-count" id="player-count" value="2" min="1" data-key="playerCount">
         </div>
         <div class="setting">
           <label for="no-unlockables">No unlockables</label>
-          <input type="checkbox" name="no-unlockables" id="no-unlockables">
+          <input type="checkbox" name="no-unlockables" id="no-unlockables" data-key="noUnlockables">
         </div>
       </div>
       <div class="setting-wrapper">
         <h3>Tracks</h3>
         <div class="setting">
           <label for="no-tour-tracks">No Tour tracks</label>
-          <input type="checkbox" name="no-tour-tracks" id="no-tour-tracks">
+          <input type="checkbox" name="no-tour-tracks" id="no-tour-tracks" data-key="excludeTourTracks">
         </div>
         <div class="setting">
           <label for="no-dlc-tracks">No DLC tracks</label>
-          <input type="checkbox" name="no-dlc-tracks" id="no-dlc-tracks">
+          <input type="checkbox" name="no-dlc-tracks" id="no-dlc-tracks" data-key="excludeDLCTracks">
         </div>
         <div class="setting">
           <label for="no-retro-tracks">Only nitro tracks</label>
-          <input type="checkbox" name="no-retro-tracks" id="no-retro-tracks">
+          <input type="checkbox" name="no-retro-tracks" id="no-retro-tracks" data-key="excludeRetroTracks">
         </div>
         <div class="setting">
           <label for="no-nitro-tracks">Only retro tracks</label>
-          <input type="checkbox" name="no-nitro-tracks" id="no-nitro-tracks">
+          <input type="checkbox" name="no-nitro-tracks" id="no-nitro-tracks" data-key="excludeNitroTracks">
         </div>
         <div class="setting">
           <label for="no-track-twice">Not the same track twice in a row</label>
-          <input type="checkbox" name="no-track-twice" id="no-track-twice">
+          <input type="checkbox" name="no-track-twice" id="no-track-twice" data-key="noTrackTwice">
         </div>
       </div>
       <div class="setting-wrapper">
         <h3>Characters</h3>
         <div class="setting">
           <label for="no-stupid-characters">No stupid characters</label>
-          <input type="checkbox" name="no-stupid-characters" id="no-stupid-characters">
+          <input type="checkbox" name="no-stupid-characters" id="no-stupid-characters"
+            data-key="excludeStupidCharacters">
         </div>
         <div class="setting">
           <label for="no-character-twice">Not the same character twice in a row</label>
-          <input type="checkbox" name="no-character-twice" id="no-character-twice">
+          <input type="checkbox" name="no-character-twice" id="no-character-twice" data-key="noCharacterTwice">
         </div>
         <div class="setting">
           <label for="no-female-characters">No female characters</label>
-          <input type="checkbox" name="no-female-characters" id="no-female-characters">
+          <input type="checkbox" name="no-female-characters" id="no-female-characters"
+            data-key="excludeFemaleCharacters">
         </div>
         <div class="setting">
           <label for="no-male-characters">No male characters</label>
-          <input type="checkbox" name="no-male-characters" id="no-male-characters">
+          <input type="checkbox" name="no-male-characters" id="no-male-characters" data-key="excludeMaleCharacters">
         </div>
       </div>
       <div class="setting-wrapper">
         <h3>Karts</h3>
         <div class="setting">
           <label for="no-bikes">No bikes</label>
-          <input type="checkbox" name="no-bikes" id="no-bikes">
+          <input type="checkbox" name="no-bikes" id="no-bikes" data-key="excludeBikes">
         </div>
         <div class="setting">
           <label for="no-kart-twice">Not the same kart twice in a row</label>
-          <input type="checkbox" name="no-kart-twice" id="no-kart-twice">
+          <input type="checkbox" name="no-kart-twice" id="no-kart-twice" data-key="noKartTwice">
         </div>
         <div class="setting">
           <label for="no-tires-twice">Not the same tires twice in a row</label>
-          <input type="checkbox" name="no-tires-twice" id="no-tires-twice">
+          <input type="checkbox" name="no-tires-twice" id="no-tires-twice" data-key="noTiresTwice">
         </div>
         <div class="setting">
           <label for="no-glider-twice">Not the same glider twice in a row</label>
-          <input type="checkbox" name="no-glider-twice" id="no-glider-twice">
+          <input type="checkbox" name="no-glider-twice" id="no-glider-twice" data-key="noGliderTwice">
         </div>
       </div>
       <div class="setting-wrapper">
         <h3>Items</h3>
         <div class="setting">
           <label for="min-items">Minimum items</label>
-          <input type="number" name="min-items" id="min-items" value="5" min="1">
+          <input type="number" name="min-items" id="min-items" value="5" min="1" data-key="minItems">
         </div>
         <div class="setting">
           <label for="max-items">Maximum items</label>
-          <input type="number" name="max-items" id="max-items" value="10" min="1">
+          <input type="number" name="max-items" id="max-items" value="10" min="1" data-key="maxItems">
         </div>
       </div>
       <div class="setting-wrapper">
-        <button class="save-settings">Save settings</button>
-        <button class="clear-settings">Clear settings</button>
+        <button id="set-default">Set current settings as default</button>
+        <button id="reset-default">Reset current settings to default</button>
       </div>
     </div>
     <div class="dialog-footer">
-      <button class="reset-settings">Reset settings</button>
+      <button id="save-settings">Save</button>
     </div>
   </dialog>
   <header>
     <h1>Mario Kart 8 Deluxe randomizer</h1>
-    <svg version="1.1" id="open-dialog" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-      viewBox="-5.4 -5.4 64.80 64.80" xml:space="preserve" stroke="#000000" stroke-width="2.16">
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#000000"
-        stroke-width="0.6479999999999999"></g>
-      <g id="SVGRepo_iconCarrier">
-        <g>
-          <path
-            d="M51.22,21h-5.052c-0.812,0-1.481-0.447-1.792-1.197s-0.153-1.54,0.42-2.114l3.572-3.571 c0.525-0.525,0.814-1.224,0.814-1.966c0-0.743-0.289-1.441-0.814-1.967l-4.553-4.553c-1.05-1.05-2.881-1.052-3.933,0l-3.571,3.571 c-0.574,0.573-1.366,0.733-2.114,0.421C33.447,9.313,33,8.644,33,7.832V2.78C33,1.247,31.753,0,30.22,0H23.78 C22.247,0,21,1.247,21,2.78v5.052c0,0.812-0.447,1.481-1.197,1.792c-0.748,0.313-1.54,0.152-2.114-0.421l-3.571-3.571 c-1.052-1.052-2.883-1.05-3.933,0l-4.553,4.553c-0.525,0.525-0.814,1.224-0.814,1.967c0,0.742,0.289,1.44,0.814,1.966l3.572,3.571 c0.573,0.574,0.73,1.364,0.42,2.114S8.644,21,7.832,21H2.78C1.247,21,0,22.247,0,23.78v6.439C0,31.753,1.247,33,2.78,33h5.052 c0.812,0,1.481,0.447,1.792,1.197s0.153,1.54-0.42,2.114l-3.572,3.571c-0.525,0.525-0.814,1.224-0.814,1.966 c0,0.743,0.289,1.441,0.814,1.967l4.553,4.553c1.051,1.051,2.881,1.053,3.933,0l3.571-3.572c0.574-0.573,1.363-0.731,2.114-0.42 c0.75,0.311,1.197,0.98,1.197,1.792v5.052c0,1.533,1.247,2.78,2.78,2.78h6.439c1.533,0,2.78-1.247,2.78-2.78v-5.052 c0-0.812,0.447-1.481,1.197-1.792c0.751-0.312,1.54-0.153,2.114,0.42l3.571,3.572c1.052,1.052,2.883,1.05,3.933,0l4.553-4.553 c0.525-0.525,0.814-1.224,0.814-1.967c0-0.742-0.289-1.44-0.814-1.966l-3.572-3.571c-0.573-0.574-0.73-1.364-0.42-2.114 S45.356,33,46.168,33h5.052c1.533,0,2.78-1.247,2.78-2.78V23.78C54,22.247,52.753,21,51.22,21z M52,30.22 C52,30.65,51.65,31,51.22,31h-5.052c-1.624,0-3.019,0.932-3.64,2.432c-0.622,1.5-0.295,3.146,0.854,4.294l3.572,3.571 c0.305,0.305,0.305,0.8,0,1.104l-4.553,4.553c-0.304,0.304-0.799,0.306-1.104,0l-3.571-3.572c-1.149-1.149-2.794-1.474-4.294-0.854 c-1.5,0.621-2.432,2.016-2.432,3.64v5.052C31,51.65,30.65,52,30.22,52H23.78C23.35,52,23,51.65,23,51.22v-5.052 c0-1.624-0.932-3.019-2.432-3.64c-0.503-0.209-1.021-0.311-1.533-0.311c-1.014,0-1.997,0.4-2.761,1.164l-3.571,3.572 c-0.306,0.306-0.801,0.304-1.104,0l-4.553-4.553c-0.305-0.305-0.305-0.8,0-1.104l3.572-3.571c1.148-1.148,1.476-2.794,0.854-4.294 C10.851,31.932,9.456,31,7.832,31H2.78C2.35,31,2,30.65,2,30.22V23.78C2,23.35,2.35,23,2.78,23h5.052 c1.624,0,3.019-0.932,3.64-2.432c0.622-1.5,0.295-3.146-0.854-4.294l-3.572-3.571c-0.305-0.305-0.305-0.8,0-1.104l4.553-4.553 c0.304-0.305,0.799-0.305,1.104,0l3.571,3.571c1.147,1.147,2.792,1.476,4.294,0.854C22.068,10.851,23,9.456,23,7.832V2.78 C23,2.35,23.35,2,23.78,2h6.439C30.65,2,31,2.35,31,2.78v5.052c0,1.624,0.932,3.019,2.432,3.64 c1.502,0.622,3.146,0.294,4.294-0.854l3.571-3.571c0.306-0.305,0.801-0.305,1.104,0l4.553,4.553c0.305,0.305,0.305,0.8,0,1.104 l-3.572,3.571c-1.148,1.148-1.476,2.794-0.854,4.294c0.621,1.5,2.016,2.432,3.64,2.432h5.052C51.65,23,52,23.35,52,23.78V30.22z">
-          </path>
-          <path
-            d="M27,18c-4.963,0-9,4.037-9,9s4.037,9,9,9s9-4.037,9-9S31.963,18,27,18z M27,34c-3.859,0-7-3.141-7-7s3.141-7,7-7 s7,3.141,7,7S30.859,34,27,34z">
-          </path>
+    <button id="open-dialog">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="-5.4 -5.4 64.80 64.80" xml:space="preserve" stroke="#000000" stroke-width="2.16">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#000000"
+          stroke-width="0.6479999999999999"></g>
+        <g id="SVGRepo_iconCarrier">
+          <g>
+            <path
+              d="M51.22,21h-5.052c-0.812,0-1.481-0.447-1.792-1.197s-0.153-1.54,0.42-2.114l3.572-3.571 c0.525-0.525,0.814-1.224,0.814-1.966c0-0.743-0.289-1.441-0.814-1.967l-4.553-4.553c-1.05-1.05-2.881-1.052-3.933,0l-3.571,3.571 c-0.574,0.573-1.366,0.733-2.114,0.421C33.447,9.313,33,8.644,33,7.832V2.78C33,1.247,31.753,0,30.22,0H23.78 C22.247,0,21,1.247,21,2.78v5.052c0,0.812-0.447,1.481-1.197,1.792c-0.748,0.313-1.54,0.152-2.114-0.421l-3.571-3.571 c-1.052-1.052-2.883-1.05-3.933,0l-4.553,4.553c-0.525,0.525-0.814,1.224-0.814,1.967c0,0.742,0.289,1.44,0.814,1.966l3.572,3.571 c0.573,0.574,0.73,1.364,0.42,2.114S8.644,21,7.832,21H2.78C1.247,21,0,22.247,0,23.78v6.439C0,31.753,1.247,33,2.78,33h5.052 c0.812,0,1.481,0.447,1.792,1.197s0.153,1.54-0.42,2.114l-3.572,3.571c-0.525,0.525-0.814,1.224-0.814,1.966 c0,0.743,0.289,1.441,0.814,1.967l4.553,4.553c1.051,1.051,2.881,1.053,3.933,0l3.571-3.572c0.574-0.573,1.363-0.731,2.114-0.42 c0.75,0.311,1.197,0.98,1.197,1.792v5.052c0,1.533,1.247,2.78,2.78,2.78h6.439c1.533,0,2.78-1.247,2.78-2.78v-5.052 c0-0.812,0.447-1.481,1.197-1.792c0.751-0.312,1.54-0.153,2.114,0.42l3.571,3.572c1.052,1.052,2.883,1.05,3.933,0l4.553-4.553 c0.525-0.525,0.814-1.224,0.814-1.967c0-0.742-0.289-1.44-0.814-1.966l-3.572-3.571c-0.573-0.574-0.73-1.364-0.42-2.114 S45.356,33,46.168,33h5.052c1.533,0,2.78-1.247,2.78-2.78V23.78C54,22.247,52.753,21,51.22,21z M52,30.22 C52,30.65,51.65,31,51.22,31h-5.052c-1.624,0-3.019,0.932-3.64,2.432c-0.622,1.5-0.295,3.146,0.854,4.294l3.572,3.571 c0.305,0.305,0.305,0.8,0,1.104l-4.553,4.553c-0.304,0.304-0.799,0.306-1.104,0l-3.571-3.572c-1.149-1.149-2.794-1.474-4.294-0.854 c-1.5,0.621-2.432,2.016-2.432,3.64v5.052C31,51.65,30.65,52,30.22,52H23.78C23.35,52,23,51.65,23,51.22v-5.052 c0-1.624-0.932-3.019-2.432-3.64c-0.503-0.209-1.021-0.311-1.533-0.311c-1.014,0-1.997,0.4-2.761,1.164l-3.571,3.572 c-0.306,0.306-0.801,0.304-1.104,0l-4.553-4.553c-0.305-0.305-0.305-0.8,0-1.104l3.572-3.571c1.148-1.148,1.476-2.794,0.854-4.294 C10.851,31.932,9.456,31,7.832,31H2.78C2.35,31,2,30.65,2,30.22V23.78C2,23.35,2.35,23,2.78,23h5.052 c1.624,0,3.019-0.932,3.64-2.432c0.622-1.5,0.295-3.146-0.854-4.294l-3.572-3.571c-0.305-0.305-0.305-0.8,0-1.104l4.553-4.553 c0.304-0.305,0.799-0.305,1.104,0l3.571,3.571c1.147,1.147,2.792,1.476,4.294,0.854C22.068,10.851,23,9.456,23,7.832V2.78 C23,2.35,23.35,2,23.78,2h6.439C30.65,2,31,2.35,31,2.78v5.052c0,1.624,0.932,3.019,2.432,3.64 c1.502,0.622,3.146,0.294,4.294-0.854l3.571-3.571c0.306-0.305,0.801-0.305,1.104,0l4.553,4.553c0.305,0.305,0.305,0.8,0,1.104 l-3.572,3.571c-1.148,1.148-1.476,2.794-0.854,4.294c0.621,1.5,2.016,2.432,3.64,2.432h5.052C51.65,23,52,23.35,52,23.78V30.22z">
+            </path>
+            <path
+              d="M27,18c-4.963,0-9,4.037-9,9s4.037,9,9,9s9-4.037,9-9S31.963,18,27,18z M27,34c-3.859,0-7-3.141-7-7s3.141-7,7-7 s7,3.141,7,7S30.859,34,27,34z">
+            </path>
+          </g>
         </g>
-      </g>
-    </svg>
+      </svg>
+    </button>
   </header>
   <main>
     <div class="kart-wrapper">

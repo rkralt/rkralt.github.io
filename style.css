@@ -98,16 +98,26 @@ button:hover {
 }
 
 #open-dialog {
-  height: 50px;
-  width: 50px;
-  fill: var(--color-main-blue);
-  cursor: pointer;
+  background: transparent;
+  border: none!important;
+  display: grid;
+
+  & svg {
+    height: 50px;
+    width: 50px;
+    fill: var(--color-main-blue);
+  }
 }
 
 #close-dialog {
-  height: 30px;
-  width: 30px;
-  cursor: pointer;
+  background: transparent;
+  border: none!important;
+  display: grid;
+
+  & svg {
+    height: 30px;
+    width: 30px;
+  }
 }
 
 
@@ -149,7 +159,7 @@ header {
   max-width: 90%;
   width: 100%;
   overflow-y: hidden;
-  grid-template-rows: 58px 1fr 58px;
+  grid-template-rows: auto 1fr auto;
 
   & button {
     border: 1px solid gray;
