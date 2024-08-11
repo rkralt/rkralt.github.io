@@ -105,7 +105,6 @@ const closeSettingsMenuBtn = document.querySelector('#close-dialog');
 closeSettingsMenuBtn.addEventListener('click', (event) => {
   const settings = getSettings();
   loadSettings(settings);
-  randomizeAll();
 
   settingsMenu.close();
   event.stopPropagation();
@@ -115,7 +114,6 @@ closeSettingsMenuBtn.addEventListener('click', (event) => {
 const saveSettingsBtn = document.querySelector('#save-settings');
 saveSettingsBtn.addEventListener('click', () => {
   saveSettings(config.USER_CURRENT_SETTINGS_KEY);
-
   randomizeAll();
 
   settingsMenu.close();
