@@ -1,5 +1,4 @@
-import calculateStats from "../functions/calculateStats.js";
-import { toggleStatsOverlay } from "../functions/ux.js";
+import { calculateStats, toggleStatsOverlay } from "../functions/calculateStats.js";
 
 // STATS
 const playerShowStatsBtns = document.querySelectorAll('.show-stats');

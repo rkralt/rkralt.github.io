@@ -54,10 +54,6 @@ function loadSettings(settings) {
       input.checked = settings[key];
     }
   })
-
-  randomizePlayerKarts();
-  randomizeTrack();
-  randomizeItems();
 }
 
 function saveSettings(localStorageKey) {
@@ -86,4 +82,10 @@ function clearSettings() {
   localStorage.clear(config.USER_DEFAULT_SETTINGS_KEY);
 }
 
-export { getSettings, loadSettings, saveSettings, clearSettings };
+function randomizeAll() {
+  randomizePlayerKarts();
+  randomizeTrack();
+  randomizeItems();
+}
+
+export { getSettings, loadSettings, saveSettings, clearSettings, randomizeAll };

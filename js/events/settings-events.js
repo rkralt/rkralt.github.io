@@ -1,8 +1,5 @@
 import config from "../../data/config.js";
-import { getSettings ,loadSettings, saveSettings, clearSettings } from "../functions/localStorage.js";
-import randomizePlayerKarts from "../functions/randomizeKarts.js";
-import randomizeTrack from "../functions/randomizeTrack.js";
-import randomizeItems from "../functions/randomizeItems.js";
+import { getSettings, loadSettings, saveSettings, clearSettings, randomizeAll } from "../functions/localStorage.js";
 
 // PLAYERS
 // Player count
@@ -108,6 +105,7 @@ const closeSettingsMenuBtn = document.querySelector('#close-dialog');
 closeSettingsMenuBtn.addEventListener('click', (event) => {
   const settings = getSettings();
   loadSettings(settings);
+  randomizeAll();
 
   settingsMenu.close();
   event.stopPropagation();
@@ -118,9 +116,7 @@ const saveSettingsBtn = document.querySelector('#save-settings');
 saveSettingsBtn.addEventListener('click', () => {
   saveSettings(config.USER_CURRENT_SETTINGS_KEY);
 
-  randomizePlayerKarts();
-  randomizeTrack();
-  randomizeItems();
+  randomizeAll();
 
   settingsMenu.close();
 });
@@ -128,6 +124,8 @@ saveSettingsBtn.addEventListener('click', () => {
 const setDefaultBtn = document.querySelector('#set-default');
 setDefaultBtn.addEventListener('click', () => {
   saveSettings(config.USER_DEFAULT_SETTINGS_KEY);
+
+  randomizeAll();
 
   alert('Your custom default settings have been saved!');
 });
@@ -138,6 +136,8 @@ resetDefault.addEventListener('click', () => {
 
   const settings = getSettings();
   loadSettings(settings);
+
+  randomizeAll();
 
   alert('Your custom default settings have been reset!');
 });

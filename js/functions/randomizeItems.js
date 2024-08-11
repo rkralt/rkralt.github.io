@@ -18,6 +18,7 @@ function randomizeItems() {
   const allItems = Array.from(config.ITEMS_ALL);
   const arraySorted = [];
 
+  // Choose random items from array.
   while(itemAmount > 0) {
     const itemInt = getRandomItemFromArray(allItems, true);
     arraySorted.push(itemInt);
@@ -25,8 +26,10 @@ function randomizeItems() {
     itemAmount--;
   }
 
+  // Sort items from smallest to biggest number.
   arraySorted.sort((a, b) => a - b);
 
+  // Show item images.
   arraySorted.forEach(itemInt => {
     const nextItem = document.querySelector('.item[data-show="false"]');
     nextItem.dataset.show = "true";

@@ -1,17 +1,12 @@
 import config from "../data/config.js";
-import randomizePlayerKarts from "./functions/randomizeKarts.js";
-import randomizeTrack from "./functions/randomizeTrack.js";
-import randomizeItems from "./functions/randomizeItems.js";
-import { getSettings, loadSettings } from "./functions/localStorage.js";
+import { getSettings, loadSettings, randomizeAll } from "./functions/localStorage.js";
 
 // Reset settings once on startup.
 const settings = getSettings(true);
 loadSettings(settings);
 
 // Randomize once on startup.
-randomizePlayerKarts();
-randomizeTrack();
-randomizeItems();
+randomizeAll();
 
 // Set max player count based on config setting.
 const playerCountInput = document.querySelector('#player-count');

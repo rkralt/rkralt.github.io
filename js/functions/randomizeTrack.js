@@ -1,5 +1,5 @@
 import config from '../../data/config.js';
-import {getRandomItemFromArray, removeArrayFromMainArray} from './helpers.js';
+import { getRandomItemFromArray, removeArrayFromMainArray } from './helpers.js';
 
 // Randomly select track.
 function randomizeTrack() {

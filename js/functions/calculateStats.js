@@ -118,4 +118,11 @@ function showDriftType(playerSource, kartInt) {
   }
 }
 
-export default calculateStats;
+function toggleStatsOverlay(showStatsBtn) {
+  const kartItem = showStatsBtn.closest('.kart-item');
+  const statsOverlay = kartItem.querySelector('.stats-overlay');
+
+  statsOverlay.dataset.show = (statsOverlay.dataset.show !== 'true');
+}
+
+export { calculateStats, toggleStatsOverlay };
