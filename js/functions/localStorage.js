@@ -1,5 +1,5 @@
 import config from "../../data/config.js";
-import randomizePlayerKarts from './randomizeKarts.js';
+import randomizeKarts from './randomizeKarts.js';
 import randomizeTrack from './randomizeTrack.js';
 import randomizeItems from './randomizeItems.js';
 
@@ -19,29 +19,27 @@ function getSettings(clearDefaultSettings = false) {
 }
 
 function getSystemDefaultSettings() {
-  return {
-    playerCount: config.SETTING_PLAYER_COUNT,
-    excludeTourTracks: config.SETTING_EXCLUDE_TOUR_TRACKS,
-    excludeRetroTracks: config.SETTING_EXCLUDE_RETRO_TRACKS,
-    excludeNitroTracks: config.SETTING_EXCLUDE_NITRO_TRACKS,
-    excludeDLCTracks: config.SETTING_EXCLUDE_DLC_TRACKS,
-    noTrackTwice: config.SETTING_NO_TRACK_TWICE,
-    excludeStupidCharacters: config.SETTING_EXCLUDE_STUPID_CHARACTERS,
-    excludeFemaleCharacters: config.SETTING_EXCLUDE_FEMALE_CHARACTERS,
-    excludeMaleCharacters: config.SETTING_EXCLUDE_MALE_CHARACTERS,
-    noCharacterTwice: config.SETTINS_NO_CHARACTER_TWICE,
-    excludeBikes: config.SETTING_EXCLUDE_BIKES,
-    noKartTwice: config.SETTING_NO_KART_TWICE,
-    noTiresTwice: config.SETTING_NO_TIRES_TWICE,
-    noGliderTwice: config.SETTING_NO_GLIDER_TWICE,
-    minItems: config.SETTING_MIN_ITEMS,
-    maxItems: config.SETTING_MAX_ITEMS,
-    noUnlockables: config.SETTING_NO_UNLOCKABLES
-  }
+  const inputs = document.querySelectorAll('#settings-menu input[data-default][data-key]');
+  const defaultSettings = {};
+
+  inputs.forEach(input => {
+    const key = input.dataset.key;
+    const value = input.dataset.default;
+
+    if (input.type === 'number') {
+      defaultSettings[key] = parseInt(value);
+    }
+
+    if (input.type === 'checkbox') {
+      defaultSettings[key] = (value === 'true');
+    }
+  })
+
+  return defaultSettings;
 }
 
 function loadSettings(settings) {
-  const inputs = document.querySelectorAll('#settings-menu input');
+  const inputs = document.querySelectorAll('#settings-menu input[data-key]');
 
   inputs.forEach(input => {
     const key = input.dataset.key;
@@ -83,7 +81,7 @@ function clearSettings() {
 }
 
 function randomizeAll() {
-  randomizePlayerKarts();
+  randomizeKarts();
   randomizeTrack();
   randomizeItems();
 }

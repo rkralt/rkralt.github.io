@@ -81,10 +81,10 @@ const config = Object.freeze({
   // Ja ook jij Pink Gold Peach!
   CHARACTERS_REMOVE_STUPID: [5, 6, 13, 18, 19, 20, 21, 22, 34, 39, 40, 42],
 
-  //Woman are gross
+  // Women are gross
   CHARACTERS_REMOVE_FEMALE: [2, 3, 4, 6, 7, 13, 18, 19, 20, 22, 23, 34, 39, 40, 42, 46, 47],
 
-  //feminism!
+  // Feminism!
   CHARACTERS_REMOVE_MALE: [0, 1, 5, 8, 9, 10, 11, 12, 14, 15, 16, 17, 21, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 41, 43, 44, 45, 46, 47],
 
   // Array of all tires (numbers 0 to 21).
@@ -95,30 +95,6 @@ const config = Object.freeze({
 
   // Array of all items (numbers 0 to 20).
   ITEMS_ALL: Array.from({length: 21}, (v, i) => i),
-
-  // Default settings for inputs.
-  SETTING_MAX_PLAYER_COUNT: 12,
-  SETTING_MAX_ITEMS_COUNT: 21,
-
-  // Default settings
-  SETTING_PLAYER_COUNT: 2,
-  SETTING_EXCLUDE_TOUR_TRACKS: false,
-  SETTING_EXCLUDE_NITRO_TRACKS: false,
-  SETTING_EXCLUDE_RETRO_TRACKS: false,
-  SETTING_EXCLUDE_DLC_TRACKS: false,
-  SETTING_NO_TRACK_TWICE: false,
-  SETTING_EXCLUDE_STUPID_CHARACTERS: false,
-  SETTING_EXCLUDE_FEMALE_CHARACTERS: false,
-  SETTING_EXCLUDE_MALE_CHARACTERS: false,
-  SETTINS_NO_CHARACTER_TWICE: false,
-  SETTING_EXCLUDE_BIKES: false,
-  SETTING_NO_KART_TWICE: false,
-  SETTING_NO_TIRES_TWICE: false,
-  SETTING_NO_GLIDER_TWICE: false,
-  SETTING_USE_RANDOM_ITEMS: false,
-  SETTING_MIN_ITEMS: 1,
-  SETTING_MAX_ITEMS: 21,
-  SETTING_NO_UNLOCKABLES: false,
 
   // System default: no other settings are available.
   SYSTEM_DEFAULT_SETTINGS_KEY: 'systemDefaultSettings',

@@ -1,5 +1,5 @@
 import config from '../../data/config.js';
-import { getRandomIntInclusive, getRandomItemFromArray, removeArrayFromMainArray } from './helpers.js';
+import { getRandomIntInclusive, getRandomItemFromArray } from './helpers.js';
 
 function randomizeItems() {
   const allItemsToHide = document.querySelectorAll('.item');

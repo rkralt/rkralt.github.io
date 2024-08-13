@@ -1,17 +1,34 @@
 import config from "../../data/config.js";
 import { getSettings, loadSettings, saveSettings, clearSettings, randomizeAll } from "../functions/localStorage.js";
+import { setValueMinMax, checkValueBiggerThanMin, checkValueSmallerThanMax } from "../functions/helpers.js";
 
-// PLAYERS
-// Player count
-const playerCountInput = document.querySelector('#player-count');
-playerCountInput.addEventListener('change', () => {
-  if(playerCountInput.value > config.SETTING_MAX_PLAYER_COUNT) {
-    playerCountInput.value = config.SETTING_MAX_PLAYER_COUNT
-  }
-});
+const settingsMenu = document.querySelector('#settings-menu');
 
+// For all inputs with min and max value, keep value between min and max.
+const inputsMinMax = settingsMenu.querySelectorAll('input[min][max]');
+
+inputsMinMax.forEach(input => {
+  input.addEventListener('change', () => {
+    setValueMinMax(input);
+  })
+})
+
+// ITEMS
+// Keep min items below max items, and max items above min items.
+const minItems = settingsMenu.querySelector('#min-items');
+const maxItems = settingsMenu.querySelector('#max-items');
+
+minItems.addEventListener('change', () => {
+  checkValueSmallerThanMax(minItems, maxItems);
+})
+
+maxItems.addEventListener('change', () => {
+  checkValueBiggerThanMin(maxItems, minItems);
+})
+
+// TRACKS
 // Exclude retro tracks
-const excludeRetroTracks = document.querySelector('#no-retro-tracks');
+const excludeRetroTracks = settingsMenu.querySelector('#no-retro-tracks');
 excludeRetroTracks.addEventListener('click', () => {
   if(excludeRetroTracks.checked) {
     excludeNitroTracks.checked = false;
@@ -19,7 +36,7 @@ excludeRetroTracks.addEventListener('click', () => {
 })
 
 // Exclude nitro tracks
-const excludeNitroTracks = document.querySelector('#no-nitro-tracks');
+const excludeNitroTracks = settingsMenu.querySelector('#no-nitro-tracks');
 excludeNitroTracks.addEventListener('click', () => {
   if(excludeNitroTracks.checked) {
     excludeRetroTracks.checked = false;
@@ -28,7 +45,7 @@ excludeNitroTracks.addEventListener('click', () => {
 
 // CHARACTERS
 // No female characters
-const excludeFemaleCharacters = document.querySelector('#no-female-characters');
+const excludeFemaleCharacters = settingsMenu.querySelector('#no-female-characters');
 excludeFemaleCharacters.addEventListener('click', () => {
   if(excludeMaleCharacters.checked) {
     excludeMaleCharacters.checked = false;
@@ -36,43 +53,12 @@ excludeFemaleCharacters.addEventListener('click', () => {
 })
 
 // No male characters
-const excludeMaleCharacters = document.querySelector('#no-male-characters');
+const excludeMaleCharacters = settingsMenu.querySelector('#no-male-characters');
 excludeMaleCharacters.addEventListener('click', () => {
   if(excludeFemaleCharacters.checked) {
     excludeFemaleCharacters.checked = false;
   }
 })
-
-// ITEMS
-// Minimum items
-const minItems = document.querySelector('#min-items');
-minItems.addEventListener('change', () => {
-  let minItemsCurrentMin = document.querySelector('#min-items');
-  let maxItemsCurrentMin = document.querySelector('#max-items');
-
-  if(minItemsCurrentMin.value > config.SETTING_MAX_ITEMS_COUNT) {
-    minItemsCurrentMin.value = config.SETTING_MAX_ITEMS_COUNT;
-  }
-
-  if(parseInt(minItemsCurrentMin.value) > parseInt(maxItemsCurrentMin.value)) {
-    maxItemsCurrentMin.value = minItemsCurrentMin.value;
-  }
-});
-
-// Maximum items
-const maxItems = document.querySelector('#max-items');
-maxItems.addEventListener('change', () => {
-  let minItemsCurrentMax = document.querySelector('#min-items');
-  let maxItemsCurrentMax = document.querySelector('#max-items');
-
-  if(maxItemsCurrentMax.value > config.SETTING_MAX_ITEMS_COUNT) {
-    maxItemsCurrentMax.value = config.SETTING_MAX_ITEMS_COUNT;
-  }
-
-  if(parseInt(maxItemsCurrentMax.value) < parseInt(minItemsCurrentMax.value)) {
-    minItemsCurrentMax.value = maxItemsCurrentMax.value;
-  }
-});
 
 // OPEN/CLOSE MENU
 // Open settings menu
@@ -81,9 +67,6 @@ const openSettingsMenuBtn = document.querySelector('#open-dialog');
 openSettingsMenuBtn.addEventListener('click', () => {
   settingsMenu.showModal();
 })
-
-// Close settings menu when clicked outside of it.
-const settingsMenu = document.querySelector('#settings-menu');
 
 settingsMenu.addEventListener('click', (event) => {
   const rect = settingsMenu.getBoundingClientRect();
@@ -111,7 +94,7 @@ closeSettingsMenuBtn.addEventListener('click', (event) => {
 })
 
 // BUTTON EVENTS
-const saveSettingsBtn = document.querySelector('#save-settings');
+const saveSettingsBtn = settingsMenu.querySelector('#save-settings');
 saveSettingsBtn.addEventListener('click', () => {
   saveSettings(config.USER_CURRENT_SETTINGS_KEY);
   randomizeAll();
@@ -119,7 +102,7 @@ saveSettingsBtn.addEventListener('click', () => {
   settingsMenu.close();
 });
 
-const setDefaultBtn = document.querySelector('#set-default');
+const setDefaultBtn = settingsMenu.querySelector('#set-default');
 setDefaultBtn.addEventListener('click', () => {
   saveSettings(config.USER_DEFAULT_SETTINGS_KEY);
 
@@ -128,7 +111,7 @@ setDefaultBtn.addEventListener('click', () => {
   alert('Your custom default settings have been saved!');
 });
 
-const resetDefault = document.querySelector('#reset-default');
+const resetDefault = settingsMenu.querySelector('#reset-default');
 resetDefault.addEventListener('click', () => {
   clearSettings();
 

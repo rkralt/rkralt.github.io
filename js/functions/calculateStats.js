@@ -125,4 +125,29 @@ function toggleStatsOverlay(showStatsBtn) {
   statsOverlay.dataset.show = (statsOverlay.dataset.show !== 'true');
 }
 
-export { calculateStats, toggleStatsOverlay };
+function toggleAllStatOverlays() {
+  const activePlayers = document.querySelectorAll('.kart-item[data-show="true"]');
+    
+  const closedOverlays = Array.from(activePlayers).filter(player => 
+    player.querySelector('.stats-overlay[data-show="false"]')
+  );
+
+  // If all overlays are open/closed, toggle them all.
+  if(activePlayers.length === closedOverlays.length ||
+    closedOverlays.length === 0) {
+    activePlayers.forEach(player => {
+      const statsOverlay = player.querySelector('.stats-overlay');
+      calculateStats(statsOverlay);
+      toggleStatsOverlay(statsOverlay);        
+    })
+  } else {
+    // If at least 1 is opened, open the closed ones.
+    closedOverlays.forEach(player => {
+      const statsOverlay = player.querySelector('.stats-overlay');
+      calculateStats(statsOverlay);
+      toggleStatsOverlay(statsOverlay);        
+    })
+  }
+}
+
+export { calculateStats, toggleStatsOverlay, toggleAllStatOverlays };

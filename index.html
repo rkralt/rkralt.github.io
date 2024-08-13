@@ -25,85 +25,94 @@
         <h3>Players</h3>
         <div class="setting">
           <label for="player-count">Players</label>
-          <input type="number" name="player-count" id="player-count" value="2" min="1" data-key="playerCount">
+          <input type="number" name="player-count" id="player-count" min="1" max="12" data-default="2"
+            data-key="playerCount">
         </div>
         <div class="setting">
           <label for="no-unlockables">No unlockables</label>
-          <input type="checkbox" name="no-unlockables" id="no-unlockables" data-key="noUnlockables">
+          <input type="checkbox" name="no-unlockables" id="no-unlockables" data-default="false"
+            data-key="noUnlockables">
         </div>
       </div>
       <div class="setting-wrapper">
         <h3>Tracks</h3>
         <div class="setting">
           <label for="no-tour-tracks">No Tour tracks</label>
-          <input type="checkbox" name="no-tour-tracks" id="no-tour-tracks" data-key="excludeTourTracks">
+          <input type="checkbox" name="no-tour-tracks" id="no-tour-tracks" data-default="false"
+            data-key="excludeTourTracks">
         </div>
         <div class="setting">
           <label for="no-dlc-tracks">No DLC tracks</label>
-          <input type="checkbox" name="no-dlc-tracks" id="no-dlc-tracks" data-key="excludeDLCTracks">
+          <input type="checkbox" name="no-dlc-tracks" id="no-dlc-tracks" data-default="false"
+            data-key="excludeDLCTracks">
         </div>
         <div class="setting">
           <label for="no-retro-tracks">Only nitro tracks</label>
-          <input type="checkbox" name="no-retro-tracks" id="no-retro-tracks" data-key="excludeRetroTracks">
+          <input type="checkbox" name="no-retro-tracks" id="no-retro-tracks" data-default="false"
+            data-key="excludeRetroTracks">
         </div>
         <div class="setting">
           <label for="no-nitro-tracks">Only retro tracks</label>
-          <input type="checkbox" name="no-nitro-tracks" id="no-nitro-tracks" data-key="excludeNitroTracks">
+          <input type="checkbox" name="no-nitro-tracks" id="no-nitro-tracks" data-default="false"
+            data-key="excludeNitroTracks">
         </div>
         <div class="setting">
           <label for="no-track-twice">Not the same track twice in a row</label>
-          <input type="checkbox" name="no-track-twice" id="no-track-twice" data-key="noTrackTwice">
+          <input type="checkbox" name="no-track-twice" id="no-track-twice" data-default="false" data-key="noTrackTwice">
         </div>
       </div>
       <div class="setting-wrapper">
         <h3>Characters</h3>
         <div class="setting">
           <label for="no-stupid-characters">No stupid characters</label>
-          <input type="checkbox" name="no-stupid-characters" id="no-stupid-characters"
+          <input type="checkbox" name="no-stupid-characters" id="no-stupid-characters" data-default="false"
             data-key="excludeStupidCharacters">
         </div>
         <div class="setting">
           <label for="no-character-twice">Not the same character twice in a row</label>
-          <input type="checkbox" name="no-character-twice" id="no-character-twice" data-key="noCharacterTwice">
+          <input type="checkbox" name="no-character-twice" id="no-character-twice" data-default="false"
+            data-key="noCharacterTwice">
         </div>
         <div class="setting">
           <label for="no-female-characters">No female characters</label>
-          <input type="checkbox" name="no-female-characters" id="no-female-characters"
+          <input type="checkbox" name="no-female-characters" id="no-female-characters" data-default="false"
             data-key="excludeFemaleCharacters">
         </div>
         <div class="setting">
           <label for="no-male-characters">No male characters</label>
-          <input type="checkbox" name="no-male-characters" id="no-male-characters" data-key="excludeMaleCharacters">
+          <input type="checkbox" name="no-male-characters" id="no-male-characters" data-default="false"
+            data-key="excludeMaleCharacters">
         </div>
       </div>
       <div class="setting-wrapper">
         <h3>Karts</h3>
         <div class="setting">
           <label for="no-bikes">No bikes</label>
-          <input type="checkbox" name="no-bikes" id="no-bikes" data-key="excludeBikes">
+          <input type="checkbox" name="no-bikes" id="no-bikes" data-default="false" data-key="excludeBikes">
         </div>
         <div class="setting">
           <label for="no-kart-twice">Not the same kart twice in a row</label>
-          <input type="checkbox" name="no-kart-twice" id="no-kart-twice" data-key="noKartTwice">
+          <input type="checkbox" name="no-kart-twice" id="no-kart-twice" data-default="false" data-key="noKartTwice">
         </div>
         <div class="setting">
           <label for="no-tires-twice">Not the same tires twice in a row</label>
-          <input type="checkbox" name="no-tires-twice" id="no-tires-twice" data-key="noTiresTwice">
+          <input type="checkbox" name="no-tires-twice" id="no-tires-twice" data-default="false" data-key="noTiresTwice">
         </div>
         <div class="setting">
           <label for="no-glider-twice">Not the same glider twice in a row</label>
-          <input type="checkbox" name="no-glider-twice" id="no-glider-twice" data-key="noGliderTwice">
+          <input type="checkbox" name="no-glider-twice" id="no-glider-twice" data-default="false"
+            data-key="noGliderTwice">
         </div>
       </div>
       <div class="setting-wrapper">
         <h3>Items</h3>
         <div class="setting">
           <label for="min-items">Minimum items</label>
-          <input type="number" name="min-items" id="min-items" value="5" min="1" data-key="minItems">
+          <input type="number" name="min-items" id="min-items" min="1" max="21" data-default="1" data-key="minItems">
         </div>
         <div class="setting">
           <label for="max-items">Maximum items</label>
-          <input type="number" name="max-items" id="max-items" value="10" min="1" data-key="maxItems">
+          <input type="number" name="max-items" id="max-items" min="1" max="21" data-default="21" data-key="maxItems">
         </div>
       </div>
       <div class="setting-wrapper">

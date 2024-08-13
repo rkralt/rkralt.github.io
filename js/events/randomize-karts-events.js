@@ -1,12 +1,9 @@
-import randomizePlayerKarts from "../functions/randomizeKarts.js";
+import randomizeKarts from "../functions/randomizeKarts.js";
+import { keyEvent } from "../functions/helpers.js";
 
 // Randomize karts on button click.
 const randomizeKartsBtn = document.querySelector('#randomize-karts');
-randomizeKartsBtn.addEventListener('click', randomizePlayerKarts);
+randomizeKartsBtn.addEventListener('click', randomizeKarts);
 
-// Randomize karts by pressing r key.
-document.addEventListener('keyup', function(event) {
-  if (event.key === 'r' || event.key === 'R') {
-    randomizePlayerKarts();
-  }
-})
+// Randomize karts by pressing k key.
+keyEvent('k', randomizeKarts);

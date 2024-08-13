@@ -2,7 +2,7 @@ import config from '../../data/config.js';
 import { getRandomIntInclusive, getRandomItemFromArray, removeArrayFromMainArray } from './helpers.js';
 
 // Randomize player karts.
-function randomizePlayerKarts() {
+function randomizeKarts() {
   let playerCount = document.querySelector('#player-count').value;
   const allPlayers = document.querySelectorAll('.kart-item');
   
@@ -230,4 +230,4 @@ function setGlidersImage(playerSource) {
   gliderSource.dataset.id = gliderInt; 
 }
 
-export default randomizePlayerKarts;
+export default randomizeKarts;

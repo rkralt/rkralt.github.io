@@ -28,8 +28,66 @@ function removeArrayFromMainArray(mainArray, arrayToRemove) {
   return mainArray.filter((el) => !arrayToRemove.includes(el));
 }
 
+// Check if value is in array.
 function itemInArray(array, item) {
   return array.includes(item);
 }
 
-export { getRandomIntInclusive, getRandomItemFromArray, removeArrayFromMainArray, itemInArray };
+// Set input value to min/max on change.
+function setValueMinMax(input) {
+  const min = parseInt(input.min);
+  const max = parseInt(input.max);
+  const value = parseInt(input.value);
+  const defaultValue = parseInt(input.dataset.default);
+
+  // If value is empty, set default value if present, else set the min value.
+  if(Number.isNaN(value)) {
+    if(!Number.isNaN(defaultValue)) {
+      input.value = defaultValue;
+    } else {
+      input.value = min;
+    }
+  }
+
+  if(value < min) {
+    input.value = min;
+  }
+
+  if(value > max) {
+    input.value = max;
+  }
+}
+
+// Keep input value below another input value.
+function checkValueSmallerThanMax(input, inputMax) {
+  const value = parseInt(input.value);
+  const maxValue = parseInt(inputMax.value);
+
+  if(value > maxValue) {
+    inputMax.value = value;
+  }
+}
+
+// Keep input value above another input value.
+function checkValueBiggerThanMin(input, inputMin) {
+  const value = parseInt(input.value);
+  const minValue = parseInt(inputMin.value);
+
+  if(value < minValue) {
+    inputMin.value = value;
+  }
+}
+
+// Run function when key is pressed
+function keyEvent(key, functionToRun) {
+  document.addEventListener('keyup', (event) => {
+    const settingsMenu = document.querySelector('#settings-menu[open]');
+    if (settingsMenu !== null) return;
+    
+    if (event.key === key.toLowerCase() || event.key === key.toUpperCase()) {
+      functionToRun();
+    }
+  })
+}
+
+export { getRandomIntInclusive, getRandomItemFromArray, removeArrayFromMainArray, itemInArray, setValueMinMax, checkValueBiggerThanMin, checkValueSmallerThanMax, keyEvent };
