@@ -95,18 +95,15 @@ const config = Object.freeze({
 
   // Array of all items (numbers 0 to 20).
   ITEMS_ALL: Array.from({length: 21}, (v, i) => i),
-
-  // System default: no other settings are available.
-  SYSTEM_DEFAULT_SETTINGS_KEY: 'systemDefaultSettings',
+  
+  // Inward drifting vehicles
+  INWARD_VEHICLES: [30, 31, 32, 33, 34],
 
   // User default: saved settings by the user.
   USER_DEFAULT_SETTINGS_KEY: 'userDefaultSettings',
 
   // User current: user settings from current session (will be cleared on refresh)
   USER_CURRENT_SETTINGS_KEY: 'userCurrentSettings',
-
-  // Inward drifting vehicles
-  INWARD_VEHICLES: [30, 31, 32, 33, 34],
 })
 
 export default config;
