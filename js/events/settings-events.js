@@ -86,7 +86,7 @@ setDefaultBtn.addEventListener('click', () => {
 
 const resetDefault = settingsMenu.querySelector('#reset-default');
 resetDefault.addEventListener('click', () => {
-  clearSettings();
+  clearSettings(config.USER_DEFAULT_SETTINGS_KEY);
 
   const settings = getSettings();
   loadSettings(settings);

@@ -3,11 +3,7 @@ import randomizeKarts from './randomizeKarts.js';
 import randomizeTrack from './randomizeTrack.js';
 import randomizeItems from './randomizeItems.js';
 
-function getSettings(clearDefaultSettings = false) {
-  if(clearDefaultSettings) {
-    localStorage.removeItem(config.USER_CURRENT_SETTINGS_KEY);
-  }
-
+function getSettings() {
   const userCurrentSettings = localStorage.getItem(config.USER_CURRENT_SETTINGS_KEY);
   if(userCurrentSettings !== null) return JSON.parse(userCurrentSettings);
 
@@ -76,8 +72,8 @@ function saveSettings(localStorageKey) {
   localStorage.setItem(localStorageKey, JSON.stringify(settings));
 }
 
-function clearSettings() {
-  localStorage.clear(config.USER_DEFAULT_SETTINGS_KEY);
+function clearSettings(localStorageKey) {
+  localStorage.clear(localStorageKey);
 }
 
 function randomizeAll() {

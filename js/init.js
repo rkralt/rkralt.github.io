@@ -1,7 +1,10 @@
-import { getSettings, loadSettings, randomizeAll } from "./functions/localStorage.js";
+import config from "../data/config.js";
+import { getSettings, loadSettings, clearSettings, randomizeAll } from "./functions/localStorage.js";
 
 // Reset settings once on startup.
-const settings = getSettings(true);
+
+clearSettings(config.USER_DEFAULT_SETTINGS_KEY);
+const settings = getSettings();
 loadSettings(settings);
 
 // Randomize once on startup.
