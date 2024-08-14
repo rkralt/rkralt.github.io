@@ -197,11 +197,22 @@ header {
 
 #settings-menu:popover-open {
   display: grid;
+
+  & > .dialog-overlay {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--color-main-blue);
+    opacity: .7;
+    z-index: -1;
+  }
 }
 
-#settings-menu::backdrop {
-  background-color: var(--color-main-blue);
-  opacity: .7;
+.dialog-overlay {
+  display: none;
 }
 
 .setting {

@@ -95,3 +95,8 @@ resetDefault.addEventListener('click', () => {
 
   alert('Your custom default settings have been reset!');
 });
+
+const dialogOverlay = settingsMenu.querySelector('.dialog-overlay');
+dialogOverlay.addEventListener('click', () => {
+  settingsMenu.hidePopover();
+})
