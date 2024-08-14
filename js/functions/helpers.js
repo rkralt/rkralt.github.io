@@ -81,7 +81,8 @@ function checkValueBiggerThanMin(input, inputMin) {
 // Run function when key is pressed
 function keyEvent(key, functionToRun) {
   document.addEventListener('keyup', (event) => {
-    const settingsMenu = document.querySelector('#settings-menu[open]');
+    // Don't run function if the settings menu is open.
+    const settingsMenu = document.querySelector('#settings-menu:popover-open');
     if (settingsMenu !== null) return;
     
     if (event.key === key.toLowerCase() || event.key === key.toUpperCase()) {

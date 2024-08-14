@@ -55,7 +55,7 @@ function loadSettings(settings) {
 }
 
 function saveSettings(localStorageKey) {
-  const inputs = document.querySelectorAll('#settings-menu input');
+  const inputs = document.querySelectorAll('#settings-menu input[data-key]');
   let settings = {};
 
   inputs.forEach(input => {

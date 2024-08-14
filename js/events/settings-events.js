@@ -60,37 +60,12 @@ excludeMaleCharacters.addEventListener('click', () => {
   }
 })
 
-// OPEN/CLOSE MENU
-// Open settings menu
-const openSettingsMenuBtn = document.querySelector('#open-dialog');
-
-openSettingsMenuBtn.addEventListener('click', () => {
-  settingsMenu.showModal();
-})
-
-settingsMenu.addEventListener('click', (event) => {
-  const rect = settingsMenu.getBoundingClientRect();
-  const isInDialog = (
-      rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
-      rect.left <= event.clientX && event.clientX <= rect.left + rect.width
-  );
-
-  if (!isInDialog) {
-    const settings = getSettings();
-    loadSettings(settings);
-    settingsMenu.close();
-  }
-});
-
 // Close dialog
 const closeSettingsMenuBtn = document.querySelector('#close-dialog');
 
 closeSettingsMenuBtn.addEventListener('click', (event) => {
   const settings = getSettings();
   loadSettings(settings);
-
-  settingsMenu.close();
-  event.stopPropagation();
 })
 
 // BUTTON EVENTS
@@ -98,8 +73,6 @@ const saveSettingsBtn = settingsMenu.querySelector('#save-settings');
 saveSettingsBtn.addEventListener('click', () => {
   saveSettings(config.USER_CURRENT_SETTINGS_KEY);
   randomizeAll();
-
-  settingsMenu.close();
 });
 
 const setDefaultBtn = settingsMenu.querySelector('#set-default');
