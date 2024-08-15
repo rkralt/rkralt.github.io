@@ -3,7 +3,7 @@ import { getSettings, loadSettings, clearSettings, randomizeAll } from "./functi
 
 // Reset settings once on startup.
 
-clearSettings(config.USER_DEFAULT_SETTINGS_KEY);
+clearSettings(config.USER_CURRENT_SETTINGS_KEY);
 const settings = getSettings();
 loadSettings(settings);
 
