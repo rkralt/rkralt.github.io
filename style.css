@@ -25,10 +25,13 @@
   --color-main-blue-hover: hsl(190, 100%, 13%);
   --color-main-blue-hover-lighter: hsl(190, 100%, 20%);
 
+  --color-main-gray: hsl(0, 0%, 19%);
+
   --color-accent: #00ACD0;
   --color-blur-bg: rgba(0, 0, 0, 0.4);
   --filter-blur-bg: blur(2px);
   --box-shadow-blur: 3px 3px 10px 0px var(--color-main-blue);
+  --box-shadow-blur-gray: 3px 3px 10px 0px var(--color-main-gray);
 }
 
 html {
@@ -53,6 +56,34 @@ body {
   background-size: max(50%, 500px);
   font-size: clamp(var(--min-font-size), var(--scale-factor), var(--max-font-size));
   accent-color: var(--color-accent);
+}
+
+body#homepage {
+  background-image: url("Images/homepage.png");
+  /* background-size: cover; */
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+
+  & h1 {
+    color: white;
+    padding-bottom: var(--padding-sm);
+    text-align: center;
+  }
+}
+
+body#mario-kart-world {
+  & main {
+    display: grid;
+    place-items: center;
+    grid-template-columns: none;
+  }
+}
+
+.choose-game {
+  background-color: #0092FF;
+  padding: var(--padding-md);
+  border-radius: var(--border-radius);
 }
 
 h1 {
@@ -95,6 +126,14 @@ button {
 
 button:hover {
   background: linear-gradient(180deg, var(--color-main-blue-hover-lighter) 0%, var(--color-main-blue-hover) 100%);
+}
+
+#home {
+  & svg {
+    height: 50px;
+    width: 50px;
+    fill: var(--color-main-blue);
+  }
 }
 
 #open-dialog {
@@ -148,6 +187,21 @@ header {
   & > button {
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
   } 
+}
+
+.game-item {
+  display: inline-flex;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  align-items: center;
+  background-color: var(--color-blur-bg);
+  backdrop-filter: var(--filter-blur-bg);
+  box-shadow: var(--box-shadow-blur-gray);
+  padding: var(--padding-sm);
+
+  & img {
+    max-height: 100px;
+  }
 }
 
 #settings-menu {
