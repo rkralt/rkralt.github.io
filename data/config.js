@@ -32,13 +32,13 @@ const config = Object.freeze({
   POSITION_YOSHI: 8,
 
   // Base URLs for images.
-  BASE_URL_CHARACTERS: 'Images/Characters/',
-  BASE_URL_KARTS: 'Images/Carts/',
-  BASE_URL_TIRES: 'Images/Tires/',
-  BASE_URL_GLIDERS: 'Images/Gliders/',
-  BASE_URL_CUP: 'Images/Cup/',
-  BASE_URL_TRACKS: 'Images/Tracks/',
-  BASE_URL_ITEMS: 'Images/Items/',
+  BASE_URL_CHARACTERS: 'Images/MK8/Characters/',
+  BASE_URL_KARTS: 'Images/MK8/Carts/',
+  BASE_URL_TIRES: 'Images/MK8/Tires/',
+  BASE_URL_GLIDERS: 'Images/MK8/Gliders/',
+  BASE_URL_CUP: 'Images/MK8/Cup/',
+  BASE_URL_TRACKS: 'Images/MK8/Tracks/',
+  BASE_URL_ITEMS: 'Images/MK8/Items/',
 
   // URL extension for specific characters with more than 1 variant.
   URL_EXTENSION_BIRDO: 'Birdo/',

@@ -1,5 +1,10 @@
 @import url('https://fonts.cdnfonts.com/css/new-super-mario-font-u');
 
+@font-face {
+  font-family: TboiFont;
+  src: url(Fonts/upheaval/upheavtt.ttf);
+}
+
 /* MAIN CONFIG */
 *,
 *::before,
@@ -52,14 +57,14 @@ button {
 
 body {
   padding: var(--padding-lg);
-  background-image: url("Images/Background.png");
+  background-image: url("Images/MK8/Background.png");
   background-size: max(50%, 500px);
   font-size: clamp(var(--min-font-size), var(--scale-factor), var(--max-font-size));
   accent-color: var(--color-accent);
 }
 
 body#homepage {
-  background-image: url("Images/homepage.png");
+  background-image: url("Images/Homepage/homepage.png");
   /* background-size: cover; */
   display: grid;
   place-items: center;
@@ -481,4 +486,80 @@ main {
   .stats-bar {
     height: 16px;
   }
+}
+
+/* TBOI */
+
+body#tboi {
+  background-image: url("Images/TBOI/BindingBackground.png");
+  background-size: cover;
+  height: 100dvh;
+
+  #home svg {
+    fill: white;
+  }
+
+  & h1, h2, h3 {
+    font-family: TboiFont;
+    color: white;
+  }
+
+  & main {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+  }
+
+  & .tboi-item-details-wrapper {
+    background-color: rgba(51, 51, 51, 0.7);
+    backdrop-filter: var(--filter-blur-bg);
+    border-radius: var(--border-radius);
+    padding: var(--padding-sm);
+    box-shadow: gray;
+    position: sticky;
+    top: var(--padding-lg);
+  }
+
+  & .tboi-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-sm);
+  }
+
+  & .tboi-item {
+    max-height: 65px;
+    max-width: 65px;
+    background-color: rgba(51, 51, 51, 0.7);
+    border-radius: var(--border-radius);
+  }
+
+  & .tboi-title {
+    display: flex;
+    justify-content: space-between;
+
+    & .tboi-item-quality {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+/* POKEMON (GARRRYYYY) */
+
+body#pokemon{
+  background-image: url("Images/Pokemon/Background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hidden {
+  display: none;
+}
+
+textarea {
+  background-color: transparent;
+  border: none;
+  resize: none;
+  color: white;
+  width: 100%;
+  font-size: 16px;
 }
